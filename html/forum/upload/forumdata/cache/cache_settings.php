@@ -1,7 +1,7 @@
 <?php
 //Discuz! cache file, DO NOT modify me!
-//Created: Sep 11, 2013, 9:50
-//Identify: 327665c5250a573831e649bd15db33f0
+//Created: Sep 12, 2013, 13:01
+//Identify: 17230bbb68b1702586383142c7cc8eb3
 
 $_DCACHE['settings'] = array (
   'accessemail' => '',
@@ -232,7 +232,7 @@ $_DCACHE['settings'] = array (
     ),
   ),
   'hideprivate' => '1',
-  'historyposts' => '0	1',
+  'historyposts' => '1	1',
   'hottopic' => '10',
   'icp' => '',
   'imagelib' => '0',
@@ -486,10 +486,10 @@ $_DCACHE['settings'] = array (
   'tasktypes' => 'a:3:{s:9:"promotion";a:2:{s:4:"name";s:18:"论坛推广任务";s:7:"version";s:3:"1.0";}s:4:"gift";a:2:{s:4:"name";s:15:"红包类任务";s:7:"version";s:3:"1.0";}s:6:"avatar";a:2:{s:4:"name";s:15:"头像类任务";s:7:"version";s:3:"1.0";}}',
   'founder_contact' => 'a:3:{s:2:"qq";s:0:"";s:3:"msn";s:0:"";s:5:"email";s:20:"cong.han@cs2c.com.cn";}',
   'version' => '7.2',
-  'totalmembers' => '2',
+  'totalmembers' => 4,
   'lastmember' => 'hancong',
   'cachethreadon' => 0,
-  'cronnextrun' => '1378915200',
+  'cronnextrun' => '1379001600',
   'styles' => 
   array (
     4 => 'red',

@@ -6,7 +6,6 @@
  * Relies on: mw.config (wgFormattedNamespaces, wgNamespaceIds, wgCaseSensitiveNamespaces), mw.util.wikiGetlink
  */
 ( function ( mw, $ ) {
-
 	/* Local space */
 
 	/**

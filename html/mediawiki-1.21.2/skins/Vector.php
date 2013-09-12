@@ -155,6 +155,56 @@ class VectorTemplate extends BaseTemplate {
 ?>
 		<div id="mw-page-base" class="noprint"></div>
 		<div id="mw-head-base" class="noprint"></div>
+		
+		<div id="mw-navigation">
+			<h2><?php $this->msg( 'navigation-heading' ) ?></h2>
+			<!--headerleft-->
+			<div class="headerleft">
+			<!-- header -->
+                        <div id="mw-head">
+                                <?php $this->renderNavigation( 'PERSONAL' ); ?>
+				<br />
+				<div>
+                                        <?php $this->renderNavigation( array('SEARCH' ) ); ?>
+                                </div>
+
+                        </div>
+                        <!-- /header -->
+
+			<!-- logo -->
+			<div id="p-logo" role="banner">
+				<a style="background-image: url(<?php $this->text( 'logopath' ) ?>);" href="<?php echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] ) ?>" <?php echo Xml::expandAttributes( Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) ) ?>>
+			</a> <span>blah blah</span><br><small>Lorem ipsum dolor sit amet, consectetuer adipiscing</small>
+			</div>
+			<!-- /logo -->
+			<ul class="addul">
+			
+			<li><a href="/index.html">Home</a></li>
+			<li><a href="/osc/html/community.html">Community</a></li>
+			<li><a href="/osc/html/project.html">Project</a></li>
+			<li><a href="/osc/html/migrating.html">Migrating Center</a></li>
+			<li><a href="/mediawiki-1.21.2/index.php/CS2C_OS:Current_events">News</a></li>
+			<li><a href="/mediawiki-1.21.2/index.php/Main_Page" class="current">Wiki</a></li>
+			<li><a href="/forum/upload/index.php" class="last">Forum</a></li>
+
+			<div style="clear:left;"></div>
+
+			</ul>
+<div style="clear:both;"></div>
+			</div><!--/headerleft-->
+		</div>
+		<!-- panel -->
+			<div id="mw-panel">
+				<div id="left-navigation">
+					<?php $this->renderNavigation( array( 'NAMESPACES', 'VARIANTS' ) ); ?>
+				</div>
+				<div id="right-navigation">
+					<?php $this->renderNavigation( array( 'VIEWS', 'ACTIONS' ) ); ?>
+				</div>
+				
+				<?php $this->renderPortals( $this->data['sidebar'] ); ?>
+			</div>
+			<!-- /panel -->
 		<!-- content -->
 		<div id="content" class="mw-body" role="main">
 			<a id="top"></a>
@@ -170,6 +220,7 @@ class VectorTemplate extends BaseTemplate {
 				$this->html( 'pageLanguage' );
 			?>"><span dir="auto"><?php $this->html( 'title' ) ?></span></h1>
 			<!-- /firstHeading -->
+			
 			<!-- bodyContent -->
 			<div id="bodyContent">
 				<?php if ( $this->data['isarticle'] ): ?>
@@ -225,36 +276,6 @@ class VectorTemplate extends BaseTemplate {
 				<!-- /debughtml -->
 			</div>
 			<!-- /bodyContent -->
-		</div>
-		<!-- /content -->
-		<div id="mw-navigation">
-			<h2><?php $this->msg( 'navigation-heading' ) ?></h2>
-			<!-- header -->
-			<div id="mw-head">
-				<?php $this->renderNavigation( 'PERSONAL' ); ?>
-
-				<div id="left-navigation">
-					<?php $this->renderNavigation( array( 'NAMESPACES', 'VARIANTS' ) ); ?>
-				</div>
-				<div id="right-navigation">
-					<?php $this->renderNavigation( array( 'VIEWS', 'ACTIONS', 'SEARCH' ) ); ?>
-				</div>
-			</div>
-			<!-- /header -->
-			<!-- panel -->
-			<div id="mw-panel">
-				<!-- logo -->
-					<div id="p-logo" role="banner"><a style="background-image: url(<?php $this->text( 'logopath' ) ?>);" href="<?php echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] ) ?>" <?php echo Xml::expandAttributes( Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) ) ?>></a></div>
-				<!-- /logo -->
-<ul class="addul">
-<li><a href="http://10.1.50.7/osc/index.html">Community</a></li>
-<li><a href="http://10.1.50.7/osc/html/project.html">Project</a></li>
-<li><a href="http://10.1.50.7/forum/upload/index.php">Forum</a></li>
-</ul>
-				<?php $this->renderPortals( $this->data['sidebar'] ); ?>
-			</div>
-			<!-- /panel -->
-		</div>
 		<!-- footer -->
 		<div id="footer" role="contentinfo"<?php $this->html( 'userlangattributes' ) ?>>
 			<?php foreach( $this->getFooterLinks() as $category => $links ): ?>
@@ -280,6 +301,9 @@ class VectorTemplate extends BaseTemplate {
 			<div style="clear:both"></div>
 		</div>
 		<!-- /footer -->
+		</div>
+		<!-- /content -->
+		
 		<?php $this->printTrail(); ?>
 
 	</body>
@@ -440,7 +464,7 @@ class VectorTemplate extends BaseTemplate {
 				case 'ACTIONS':
 ?>
 <div id="p-cactions" role="navigation" class="vectorMenu<?php if ( count( $this->data['action_urls'] ) == 0 ) echo ' emptyPortlet'; ?>">
-	<h3><span><?php $this->msg( 'actions' ) ?></span><a href="#"></a></h3>
+	<span><?php $this->msg( 'actions' ) ?></span><a href="#"></a>
 	<div class="menu">
 		<ul<?php $this->html( 'userlangattributes' ) ?>>
 			<?php foreach ( $this->data['action_urls'] as $link ): ?>

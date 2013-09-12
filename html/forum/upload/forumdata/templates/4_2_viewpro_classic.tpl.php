@@ -1,10 +1,10 @@
-<? if(!defined('IN_DISCUZ')) exit('Access Denied'); hookscriptoutput('showmessage');
+<? if(!defined('IN_DISCUZ')) exit('Access Denied'); hookscriptoutput('viewpro_classic');
 0
-|| checktplrefresh('/var/www/html/forum/upload/./templates/default/showmessage.htm', '/var/www/html/forum/upload/./templates/default/header.htm', 1378868910, '2', './templates/colors')
-|| checktplrefresh('/var/www/html/forum/upload/./templates/default/showmessage.htm', '/var/www/html/forum/upload/./templates/default/footer.htm', 1378868910, '2', './templates/colors')
-|| checktplrefresh('/var/www/html/forum/upload/./templates/default/showmessage.htm', '/var/www/html/forum/upload/./templates/default/jsmenu.htm', 1378868910, '2', './templates/colors')
+|| checktplrefresh('/var/www/html/forum/upload/./templates/default/viewpro_classic.htm', '/var/www/html/forum/upload/./templates/default/header.htm', 1378871051, '2', './templates/colors')
+|| checktplrefresh('/var/www/html/forum/upload/./templates/default/viewpro_classic.htm', '/var/www/html/forum/upload/./templates/default/footer.htm', 1378871051, '2', './templates/colors')
+|| checktplrefresh('/var/www/html/forum/upload/./templates/default/viewpro_classic.htm', '/var/www/html/forum/upload/./templates/default/jsmenu.htm', 1378871051, '2', './templates/colors')
 ;?>
-<? if(!$inajax) { ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>" />
@@ -20,7 +20,7 @@
 <meta http-equiv="x-ua-compatible" content="ie=7" />
 <link rel="archives" title="<?=$bbname?>" href="<?=$boardurl?>archiver/" />
 <?=$rsshead?>
-<?=$extrahead?><link rel="stylesheet" type="text/css" href="forumdata/cache/style_<?=STYLEID?>_common.css?<?=VERHASH?>" />
+<?=$extrahead?><link rel="stylesheet" type="text/css" href="forumdata/cache/style_<?=STYLEID?>_common.css?<?=VERHASH?>" /><link rel="stylesheet" type="text/css" href="forumdata/cache/scriptstyle_<?=STYLEID?>_<?=CURSCRIPT?>.css?<?=VERHASH?>" />
 <? if($forum['ismoderator']) { ?>
 <link href="forumdata/cache/style_4_moderator.css?g1J" rel="stylesheet" type="text/css" />
 <? } ?><script type="text/javascript">var STYLEID = '<?=STYLEID?>', IMGDIR = '<?=IMGDIR?>', VERHASH = '<?=VERHASH?>', charset = '<?=$charset?>', discuz_uid = <?=$discuz_uid?>, cookiedomain = '<?=$cookiedomain?>', cookiepath = '<?=$cookiepath?>', attackevasive = '<?=$attackevasive?>', disallowfloat = '<?=$disallowfloat?>', creditnotice = '<? if($creditnotice) { ?><?=$creditnames?><? } ?>', <? if(in_array(CURSCRIPT, array('viewthread', 'forumdisplay'))) { ?>gid = parseInt('<?=$thisgid?>')<? } elseif(CURSCRIPT == 'index') { ?>gid = parseInt('<?=$gid?>')<? } else { ?>gid = 0<? } ?>, fid = parseInt('<?=$fid?>'), tid = parseInt('<?=$tid?>')</script>
@@ -171,47 +171,209 @@ location.href = '<?=$BASESCRIPT?>?' + str;
 </div>
 </div>
 <?=$pluginhooks['global_header']?>
-<? } else { include template('header_ajax', '0', ''); } $allowreturn = $url_forward || !stristr($show_message, 'Return') ? 0 : 1;$alerttype = $url_forward ? (preg_match('/\_succeed$/', $message) ? 'alert_right' : 'alert_info') : ($allowreturn ? 'alert_error' : 'alert_info'); if(!$inajax) { ?>
-<div id="nav"><a href="<?=$indexname?>"><?=$bbname?></a> &raquo; Tips</div>
+<div id="nav"><a href="<?=$indexname?>"><?=$bbname?></a> &raquo; <? if($discuz_uid == $member['uid']) { ?>My Profile<? } else { ?><?=$member['username']?>'s profile<? } ?></div>
 
-<div id="wrap" class="wrap s_clear"><div class="main"><div class="content nofloat">
-<div class="fcontent alert_win">
-<h3 class="float_ctrl"><em><?=$bbname?> Tips</em></h3>
-<hr class="shadowline" />
-<div class="postbox"><div class="<?=$alerttype?>">
-<p><?=$show_message?></p>
-<? if($url_forward) { if(empty($forwardtype)) { ?>
-<p class="alert_btnleft"><a href="<?=$url_forward?>">Click here if your browser does not automatically redirect you.</a></p>
-<? } else { ?>
-<p class="alert_btnleft"><a href="<?=$url_forward?>">If the download does not start after  <?=$refreshtime?> seconds, please click here.</a></p>
-<? } } elseif($allowreturn) { ?>
-<p class="alert_btnleft"><a href="javascript:history.back()">[Return to the page you were previously viewing]</a></p>
+<script type="text/javascript">var imagemaxwidth = '<?=IMAGEMAXWIDTH?>';</script>
+
+<div id="wrap" class="wrap with_side special s_clear">
+<div class="main">
+<div id="profilecontent" class="content">
+<div class="itemtitle s_clear">
+<h1><?=$member['username']?><? if($member['online']) { ?> <img src="<?=IMGDIR?>/online_buddy.gif" title="Online" class="online_buddy" /><? } ?></h1>
+<ul>
+<li>(UID: <?=$member['uid']?>)</li>
+</ul>
+</div>
+<?=$pluginhooks['profile_baseinfo_top']?>
+<div id="baseprofile">
+<table cellpadding="0" cellpadding="0" class="formtable" style="table-layout:fixed">
+<? if($member['allownickname'] && $member['nickname']) { ?>
+<tr>
+<th>NickName:</th>
+<td><?=$member['nickname']?></td>
+</tr>
 <? } ?>
-</div></div>
-</div>
-</div></div></div>
-<? } elseif(!empty($infloat) && (empty($_POST) || !empty($nopost))) { ?>
-<div class="fcontent alert_win">
-<h3 class="float_ctrl"><em>Tips</em><span><a href="javascript:;" class="float_close" onclick="hideWindow('<?=$handlekey?>');" title="Close">Close</a></span></h3>
-<hr class="shadowline" />
-<div class="postbox">
-<div class="<?=$alerttype?>"><?=$show_message?></div>
-<? if($messagehandle == 'NOPERM' && !$discuz_uid) { ?>
-<div class="alert_btn"><input type="button" onclick="hideWindow('<?=$handlekey?>');showWindow('login', 'logging.php?action=login');" value="&nbsp;Confirmed&nbsp;" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" onclick="hideWindow('<?=$handlekey?>');" value="&nbsp;Cancel&nbsp;" /></div>
-<? } else { ?>
-<div class="alert_btn"><input type="button" onclick="hideWindow('<?=$handlekey?>');" value="Close" /></div>
+<tr>
+<th width="70">Gender:</th>
+<td>
+<? if($member['gender'] == 1) { ?>Male<? } elseif($member['gender'] == 2) { ?>Female<? } else { ?>Secret<? } ?>
+</td>
+</tr>
+
+<? if($member['location']) { ?>
+<tr>
+<th width="70">From:</th>
+<td>
+ <?=$member['location']?>
+</td>
+</tr>
+<? } if($member['bday'] != '00-00') { ?>
+<tr>
+<th width="70">Birthday:</th>
+<td>
+<?=$member['bday']?>
+</td>
+</tr>
+<? } if($member['bio']) { ?>
+<tr>
+<th>Self-presentation:</th>
+<td style="word-break:all"><?=$member['bio']?></td>
+</tr>
 <? } ?>
+</table>
+<table cellpadding="0" cellpadding="0" class="formtable">
+<? if($member['site']) { ?>
+<tr>
+<th>Website:</th>
+<td><a href="<?=$member['site']?>" target="_blank"><?=$member['site']?></a></td>
+</tr>
+<? } if($member['showemail'] && $adminid > 0) { ?>
+<tr>
+<th>Email:</th>
+<td><?=$member['email']?></td>
+</tr>
+<? } if($member['qq']) { ?>
+<tr>
+<th>QQ:</th>
+<td><a href="http://wpa.qq.com/msgrd?V=1&amp;Uin=<?=$member['qq']?>&amp;Site=<?=$bbname?>&amp;Menu=yes" target="_blank"><img src="http://wpa.qq.com/pa?p=1:<?=$member['qq']?>:4"  border="0" alt="QQ" /><?=$member['qq']?></a></td>
+</tr>
+<? } if($member['icq']) { ?>
+<tr>
+<th>ICQ:</th>
+<td><?=$member['icq']?></td>
+</tr>
+<? } if($member['yahoo']) { ?>
+<tr>
+<th>Yahoo:</th>
+<td><?=$member['yahoo']?></td>
+</tr>
+<? } if($member['msn']) { ?>
+<tr>
+<th>MSN:</th>
+<td><? if($member['msn']['1']) { ?><a target="_blank" href="http://settings.messenger.live.com/Conversation/IMMe.aspx?invitee=<?=$member['msn']['1']?>@apps.messenger.live.com&amp;mkt=zh-cn" title="MSN Chat"><img style="vertical-align:middle" src="http://messenger.services.live.com/users/<?=$member['msn']['1']?>@apps.messenger.live.com/presenceimage?mkt=zh-cn" width="16" height="16" /><em id="imme_status_<?=$member['msn']['1']?>">MSN Chat</em></a><script src="http://messenger.services.live.com/users/<?=$member['msn']['1']?>@apps.messenger.live.com/presence/?cb=showimmestatus" type="text/javascript"></script><? } if($member['msn']['0']) { ?> <?=$member['msn']['0']?><? } ?></td>
+</tr>
+<? } if($member['taobao']) { ?>
+<tr>
+<th>Wangwang:</th>
+<td><script type="text/javascript">document.write('<a target="_blank" href="http://amos1.taobao.com/msg.ww?v=2&amp;uid='+encodeURIComponent('<?=$member['taobaoas']?>')+'&amp;s=2"><img src="http://amos1.taobao.com/online.ww?v=2&amp;uid='+encodeURIComponent('<?=$member['taobaoas']?>')+'&amp;s=1" alt="Wangwang" border="0" /></a>&nbsp;');</script></td>
+</tr>
+<? } if($member['alipay']) { ?>
+<tr>
+<th>Alipay Account:</th>
+<td><?=$member['alipay']?></td>
+</tr>
+<? } if(is_array($_DCACHE['fields'])) { foreach($_DCACHE['fields'] as $field) { ?><tr>
+<th><?=$field['title']?>:</th>
+<td>
+<? if($field['selective']) { ?>
+<?=$field['choices'][$member['field_'.$field['fieldid']]]?>
+<? } else { ?>
+<?=$member['field_'.$field['fieldid']]?>
+<? } ?>
+&nbsp;
+</td>
+</tr><? } } ?></table>
+</div>
+<?=$pluginhooks['profile_baseinfo_bottom']?>
+<hr class="dashline" />
+
+<h3 class="blocktitle lightlink">User Group: <a href="faq.php?action=grouppermission&amp;searchgroupid=<?=$member['groupid']?>" target="_blank"><?=$member['grouptitle']?></a> <? showstars($member['groupstars']); ?> <? if($member['maingroupexpiry']) { ?><em>Valid before <?=$member['maingroupexpiry']?></em><? } ?></h3>
+<? if($extgrouplist) { ?>
+<p>Extended Groups:<? if(is_array($extgrouplist)) { foreach($extgrouplist as $extgroup) { ?><?=$extgroup['title']?><? if($extgroup['expiry']) { ?>&nbsp;(Valid before <?=$extgroup['expiry']?>)<? } } } ?></p>
+<? } if($modforums) { ?><p>Moderate Forums: <?=$modforums?></p><? } ?>
+<div class="s_clear">
+<ul class="commonlist right" style="width: 50%">
+<li>Joined: <?=$member['regdate']?></li>
+<li>Last Visit: <? if($member['invisible'] && $adminid != 1) { ?>Invisible Mode<? } else { ?><?=$member['lastvisit']?><? } ?></li>
+<li>Last Post: <?=$member['lastpost']?></li>
+<? if($discuz_uid == $member['uid'] || $allowviewip) { ?>
+<li>Reg. IP: <?=$member['regip']?> - <?=$member['regiplocation']?></li>
+<li>Last IP: <?=$member['lastip']?> - <?=$member['lastiplocation']?></li>
+<? } ?>
+</ul>
+<ul class="commonlist">
+<li>Post Rank: <?=$member['ranktitle']?> <? showstars($member['rankstars']); ?></li>
+<li>Read Permission: <?=$member['readaccess']?></li>
+<li>Posts: <?=$member['posts']?> piece(Percent of your posts is <?=$percent?>%)</li>
+<li>Post Per Day: <?=$postperday?> piece</li>
+<li>Digest: <?=$member['digestposts']?> piece</li>
+<? if($pvfrequence) { ?><li>Page Views: <?=$member['pageviews']?></li><? } ?>
+</ul>
+</div>
+<? if($oltimespan) { ?><p>Online Time: Total Online Time <em><?=$member['totalol']?></em> Hours, This Month Online <em><?=$member['thismonthol']?></em> Hours <? showstars(ceil(($member['totalol'] + 1) / 50)); ?> (Upgrade After <span class="bold"><?=$member['olupgrade']?></span> hours)</p><? } ?>
+
+<hr class="dashline" />
+
+<? if($member['medals']) { ?>
+<h3 class="blocktitle lightlink">Medals</h3><? if(is_array($member['medals'])) { foreach($member['medals'] as $medal) { ?><img src="images/common/<?=$medal['image']?>" border="0" alt="<?=$medal['name']?>" title="<?=$medal['name']?>" /> &nbsp;<? } } ?><hr class="dashline" />
+<? } ?>
+
+<h3 class="blocktitle lightlink">My Credits: <?=$member['credits']?></h3>
+<p><? $sp = ''; if(is_array($extcredits)) { foreach($extcredits as $id => $credit) { ?><?=$sp?><?=$credit['img']?><?=$credit['title']?>: <?=$member['extcredits'.$id]?> <?=$credit['unit']?><? $sp = ',&nbsp;'; } } ?></p>
+<? if($tradeopen) { ?>
+<hr class="dashline" />
+
+<h3 class="blocktitle lightlink">Credit Evaluation <a href="eccredit.php?uid=<?=$member['uid']?>" style="font-size: 12px; color: #09C;">(View credit records)</a></h3>
+<p>
+Buyer rate: <?=$member['sellercredit']?> <a href="eccredit.php?uid=<?=$member['uid']?>" target="_blank"><img src="images/rank/seller/<?=$member['sellerrank']?>.gif" border="0" class="absmiddle"></a>
+Seller rate: <?=$member['buyercredit']?> <a href="eccredit.php?uid=<?=$member['uid']?>" target="_blank"><img src="images/rank/buyer/<?=$member['buyerrank']?>.gif" border="0" class="absmiddle"></a>
+</p>
+<? } ?>
+<?=$pluginhooks['profile_extrainfo']?>
+
+<? if($my_status) { ?>
+<style>
+.mynarrow { margin: 5px -10px 5px 10px; padding-top: 8px; width: 200px; border-top: 1px dashed #ccc; }
+.mynarrow h3.lightlink a { text-decoration: none; }
+.with_side .side { width: 220px; }
+.with_side .main { margin-left:-220px; }
+.with_side .content { margin-left:220px; }
+</style><? if(is_array($my_list['wide'])) { foreach($my_list['wide'] as $value) { ?><hr class="dashline" />
+<h3 class="blocktitle lightlink"><a href="<?=$value['appurl']?>&from=space"><?=$value['appname']?></a></h3>
+<p><? eval($value['myml']); ?></p><? } } } ?>
 </div>
 </div>
-<? } else { echo str_replace(array(", Please return", ", Please"), array(", Please", "."), $show_message); if($extra == 'HALTED' || $extra == 'NOPERM') { ?>
-<script type="text/javascript" reload="1">
-function ajaxerror() {
-hideMenu();
-showDialog('<?=$show_message?>', 'notice', '', null, 0);
-}
-ajaxerror();
-</script>
-<? } } if(!$inajax) { ?>
+<div class="side">
+<div class="profile_side">
+<? if($bannedmessages & 2 && ($member['groupid'] == 4 || $member['groupid'] == 5)) { ?>
+<div class="avatar">Avatar banned</div>
+<? } else { ?>
+<div class="avatar"><? echo discuz_uc_avatar($member['uid']); ?></div>
+<? } ?>
+<ul id="profile_act">
+<?=$pluginhooks['profile_side_top']?>
+<li class="pm"><a href="pm.php?action=new&amp;uid=<?=$member['uid']?>" id="sendpm" prompt="sendpm" onclick="showWindow('sendpm', this.href);return false;">Send PM</a></li>
+<li class="buddy"><a href="my.php?item=buddylist&amp;newbuddyid=<?=$member['uid']?>&amp;buddysubmit=yes" id="addbuddy" prompt="addbuddy" onclick="ajaxmenu(this, 3000);doane(event);">Add buddy</a></li>
+<? if($discuz_uid && $magicstatus) { ?><li class="magic"><a href="magic.php?action=index&amp;username=<?=$member['usernameenc']?>" target="_blank">Use Props</a></li><? } if($allowviewuserthread) { ?>
+<li class="searchthread"><a href="my.php?item=threads&amp;uid=<?=$member['uid']?>">View topic</a></li>
+<li class="searchpost"><a href="my.php?item=posts&amp;uid=<?=$member['uid']?>">View reply</a></li>
+<? } else { ?>
+<li class="searchpost"><a href="search.php?srchuid=<?=$member['uid']?>&amp;srchfid=all&amp;srchfrom=0&amp;searchsubmit=yes">Search Posts</a></li>
+<? } if($ucappopen['UCHOME']) { ?>
+<li class="space"><a href="<?=$uchomeurl?>/space.php?uid=<?=$member['uid']?>" target="_blank">Personal Space</a></li>
+<? } elseif($ucappopen['XSPACE']) { ?>
+<li class="space"><a href="<?=$xspaceurl?>/?uid-<?=$member['uid']?>" target="_blank">Personal Space</a></li>
+<? } ?>
+</ul>
+<? if($discuz_uid && $magicstatus && $usemagic['user']) { ?>
+<ul><? if(is_array($usemagic['user'])) { foreach($usemagic['user'] as $id => $magic) { ?><a href="magic.php?action=mybox&amp;operation=use&amp;type=1&amp;pid=<?=$post['pid']?>&amp;magicid=<?=$id?>" onclick="showWindow('magics', this.href);doane(event);"><img src="images/magics/<?=$magic['pic']?>" title="From<?=$post['author']?>To<?=$magic['name']?>"></a><? } } ?></ul>
+<? } if($allowbanuser || $allowedituser || $member['adminid'] > 0 && $modworkstatus) { ?>
+<ul>
+<? if($member['adminid'] > 0 && $modworkstatus) { ?><li><a href="stats.php?type=modworks&amp;uid=<?=$member['uid']?>"><span>Moderations</span></a></li><? } if($allowbanuser || $allowedituser) { ?>
+<li>!admin_member!</li>
+<li>
+<? if($allowbanuser) { ?><a href="<? if($adminid==1) { ?>admincp.php?action=members&operation=ban&username=<?=$member['usernameenc']?>&frames=yes<? } else { ?>modcp.php?action=members&amp;op=ban&amp;uid=<?=$member['uid']?><? } ?>" target="_blank"><span>Ban Member</span></a>&nbsp;<? } if($allowedituser) { ?><a href="<? if($adminid == 1) { ?>admincp.php?action=members&amp;username=<?=$member['usernameenc']?>&amp;submit=yes&frames=yes<? } else { ?>modcp.php?action=members&amp;op=edit&amp;uid=<?=$member['uid']?><? } ?>" target="_blank"><span>Edit</span></a>&nbsp;<? } ?>
+<a href="modcp.php?action=threads&amp;op=posts&amp;do=search&amp;searchsubmit=1&amp;users=<?=$member['usernameenc']?>" target="_blank">Posts</a>
+</li>
+<? } ?>
+</ul>
+<? } if($my_status) { if($my_list['guide']) { ?>
+<ul><? if(is_array($my_list['guide'])) { foreach($my_list['guide'] as $value) { ?><li style="background-image: url(http://appicon.manyou.com/icons/<?=$value['appid']?>)"><? eval($value['profilelink']); ?></li><? } } ?></ul>
+<? } if(is_array($my_list['narrow'])) { foreach($my_list['narrow'] as $value) { ?><div class="mynarrow">
+<h3 class="blocktitle lightlink"><a href="<?=$value['appurl']?>&from=space"><?=$value['appname']?></a></h3><? eval($value['myml']); ?></div><? } } } ?>
+</div>
+<?=$pluginhooks['profile_side_bottom']?>
+</div>
 </div><? if(!empty($plugins['jsmenu'])) { ?>
 <ul class="popupmenu_popup headermenu_popup" id="plugin_menu" style="display: none"><? if(is_array($plugins['jsmenu'])) { foreach($plugins['jsmenu'] as $module) { ?>     <? if(!$module['adminid'] || ($module['adminid'] && $adminid > 0 && $module['adminid'] >= $adminid)) { ?>
      <li><?=$module['url']?></li>
@@ -247,4 +409,3 @@ GMT<?=$timenow['offset']?>, <?=$timenow['time']?>
 <script src="<?=$jspath?>iframe.js?<?=VERHASH?>" type="text/javascript"></script>
 <? } output(); ?></body>
 </html>
-<? } else { include template('footer_ajax', '0', ''); } ?>

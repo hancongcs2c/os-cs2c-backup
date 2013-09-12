@@ -12,21 +12,23 @@
 <body>
 <div class="bodyDiv">
   <div class="header"> <a class="logoPic" href="./index.html"> <img src="../img/logo.png" class="logoImg"> </a> <span>blah blah</span> <br />
-    <span class="faith">Lorem ipsum dolor sit amet, consectetuer adipiscing</span>
-    <form class="SearchForm">
-      <input type="text" name="Search" style="display:none;"/>
-      <button style="display:none;"></button>
- <a href="http://10.1.50.7/mediawiki-1.21.2/index.php?title=Special:UserLogin&returnto=Main+Page&returntoquery=type%3Dsignup"> Login </a> | <a href="http://10.1.50.7/mediawiki-1.21.2/index.php?title=Special:UserLogin&returnto=Main+Page&type=signup"> Register </a>
 
-</form>
-  </div>
+<form class="SearchForm" method="get" action="/mediawiki-1.21.2/index.php">
+      <input type="text" name="search" title="Search CS2C_OS [alt-shift-f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off" placeholder="Search"/>
+            <button  type="submit" name="button" title="Search the pages for this text" id="searchButton"></button>
+                    <input type="hidden" name="title" value="Special:Search">
+                     </form>
+                     </div>
   <div class="navigatin">
     <ul>
-      <li><a href="../index.html">Community</a></li>
-      <li><a href="project.html" class="current">Project</a></li>
-      <li><a href="http://10.1.50.7/mediawiki-1.21.2/index.php/CS2C_OS:Current_events">News</a></li>
-      <li><a href="http://10.1.50.7/mediawiki-1.21.2">Wiki</a></li>
-      <li><a href="http://10.1.50.7/forum/upload/index.php">Forum</a></li>
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/osc/html/community.html">Community</a></li>
+    <li><a href="/osc/html/project.html" class="current">Project</a></li>
+    <li><a href="/osc/html/migrating.html">Migrating Center</a></li>
+    <li><a href="/mediawiki-1.21.2/index.php/CS2C_OS:Current_events">News</a></li>
+    <li><a href="/mediawiki-1.21.2/index.php/Main_Page">Wiki</a></li>
+    <li><a href="/forum/upload/index.php">Forum</a></li>
+
     </ul>
   </div>
   <div class="pagebodyUp sysdiv">

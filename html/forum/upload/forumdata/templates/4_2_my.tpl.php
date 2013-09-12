@@ -1,11 +1,9 @@
-<? if(!defined('IN_DISCUZ')) exit('Access Denied'); hookscriptoutput('discuz_feeds');
+<? if(!defined('IN_DISCUZ')) exit('Access Denied'); hookscriptoutput('my');
 0
-|| checktplrefresh('/var/www/html/forum/upload/./templates/default/discuz_feeds.htm', '/var/www/html/forum/upload/./templates/default/header.htm', 1378869201, '2', './templates/colors')
-|| checktplrefresh('/var/www/html/forum/upload/./templates/default/discuz_feeds.htm', '/var/www/html/forum/upload/./templates/default/index_header.htm', 1378869201, '2', './templates/colors')
-|| checktplrefresh('/var/www/html/forum/upload/./templates/default/discuz_feeds.htm', '/var/www/html/forum/upload/./templates/default/index_heats.htm', 1378869201, '2', './templates/colors')
-|| checktplrefresh('/var/www/html/forum/upload/./templates/default/discuz_feeds.htm', '/var/www/html/forum/upload/./templates/default/index_navbar.htm', 1378869201, '2', './templates/colors')
-|| checktplrefresh('/var/www/html/forum/upload/./templates/default/discuz_feeds.htm', '/var/www/html/forum/upload/./templates/default/footer.htm', 1378869201, '2', './templates/colors')
-|| checktplrefresh('/var/www/html/forum/upload/./templates/default/discuz_feeds.htm', '/var/www/html/forum/upload/./templates/default/jsmenu.htm', 1378869201, '2', './templates/colors')
+|| checktplrefresh('/var/www/html/forum/upload/./templates/default/my.htm', '/var/www/html/forum/upload/./templates/default/header.htm', 1378870885, '2', './templates/colors')
+|| checktplrefresh('/var/www/html/forum/upload/./templates/default/my.htm', '/var/www/html/forum/upload/./templates/default/personal_navbar.htm', 1378870885, '2', './templates/colors')
+|| checktplrefresh('/var/www/html/forum/upload/./templates/default/my.htm', '/var/www/html/forum/upload/./templates/default/footer.htm', 1378870885, '2', './templates/colors')
+|| checktplrefresh('/var/www/html/forum/upload/./templates/default/my.htm', '/var/www/html/forum/upload/./templates/default/jsmenu.htm', 1378870885, '2', './templates/colors')
 ;?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -174,142 +172,153 @@ location.href = '<?=$BASESCRIPT?>?' + str;
 </div>
 </div>
 <?=$pluginhooks['global_header']?>
-<div id="nav"><a href="<?=$indexname?>"><?=$bbname?></a> &raquo; HOME</div>
-<? if($admode && !empty($advlist['text'])) { ?><div class="ad_text" id="ad_text"><table summary="Text Ad" cellpadding="0" cellspacing="1"><?=$advlist['text']?></table></div><? } else { ?><div id="ad_text"></div><? } ?>
-<div id="wrap"<? if($infosidestatus['allow'] < 2) { ?> class="wrap s_clear"<? } else { ?> class="wrap with_side s_clear"<? } ?>>
-<? if($infosidestatus['allow'] == 2) { ?>
-<a id="sidebar_img" href="javascript:;" onclick="sidebar_collapse(['Open', 'Close']);" class="<?=$collapseimg['sidebar']?>"><? if($collapseimg['sidebar'] == 'collapsed_yes') { ?>Open<? } else { ?>Close<? } ?></a>
-<? } elseif($infosidestatus['allow'] == 1) { ?>
-<a id="sidebar_img" href="javascript:;" onclick="sidebar_collapse(['', 'Close']);" class="collapsed_yes">Open</a>
-<? } ?>
-<div class="main"><div class="content">
-<?=$pluginhooks['index_header']?><div class="pages_btns s_clear">
-<span class="postbtn" id="prompt_index_postbtn"><a href="misc.php?action=nav" onclick="showWindow('nav', this.href);return false;">New</a></span>
-<? if(!$discuz_uid) { ?>
-<p>Hi, if you want to enjoy full benefits of this forum like downloading, discussing etc, please <a href="<?=$regname?>" onclick="floatwin('open_register', this.href, 600, 400, '600,0');return false;" class="lightlink">Register</a> an account, and use it to <a href="logging.php?action=login" onclick="floatwin('open_login', this.href, 600, 400);return false;" class="lightlink">Login</a>. Join us and be a part of this great community!</p>
-<? } else { ?>
-Welcome <?=$discuz_userss?>, <? if($lastvisit) { ?>Your last visit was at <?=$lastvisit?>, <? } ?><a href="my.php?item=threads" class="lightlink" target="_blank">My Posts</a>, <a href="search.php?srchfrom=<?=$newthreads?>&amp;searchsubmit=yes" class="lightlink">View New Thread</a>, <a href="member.php?action=markread" id="ajax_markread" onclick="ajaxmenu(this);doane(event);" class="lightlink">Mark Read</a>
-<? } ?>
+<div id="nav">
+<a href="<?=$indexname?>"><?=$bbname?></a> &raquo;
+<? if($srchfid) { ?><a href="my.php?item=<?=$item?><?=$extra?>"><? } if(empty($item) || in_array($item, array('threads', 'posts', 'polls', 'tradestats', 'selltrades', 'buytrades', 'tradethreads', 'reward', 'activities', 'debate'))) { ?>My Posts
+<? } elseif($item == 'favorites') { ?>Favorite
+<? } elseif($item == 'attention') { ?>My Attention
+<? } elseif($item == 'buddylist') { ?>Buddy<? } if($srchfid) { ?></a> &raquo; <?=$forumname?><? } ?>
 </div>
-
-<? if(empty($gid) && $announcements) { ?>
-<div id="ann">
-<dl>
-<dt>Note:</dt>
-<dd>
-<div id="annbody"><ul id="annbodylis"><?=$announcements?></ul></div>
-</dd>
-</dl>
-</div>
-<script type="text/javascript">announcement();</script>
-<? } if($indexhot['status']) { if($_DCACHE['heats']['message']) { ?>
-<div id="hot" class="s_clear<? if($_DCACHE['heats']['image']) { ?> img<? } ?>">
-<h3>Forum Hot Topics</h3>
-<div id="hot_main">
-<dl><? if(is_array($_DCACHE['heats']['message'])) { foreach($_DCACHE['heats']['message'] as $data) { ?><dt>
-<strong><? if($adminid == 1) { ?><a class="deloption" href="misc.php?action=removeindexheats&amp;tid=<?=$data['tid']?>&amp;from=indexheats" onclick="return removeindexheats()">delete</a><? } ?><a href="viewthread.php?tid=<?=$data['tid']?>&amp;from=indexheats"><?=$data['subject']?></a></strong>
-<cite><a href="space.php?uid=<?=$data['authorid']?>&amp;from=indexheats"><?=$data['author']?></a></cite>
-</dt>
-<dd class="desc">
-<?=$data['message']?> ...
-<a href="viewthread.php?tid=<?=$data['tid']?>&amp;from=indexheats_readmore">View Full</a>
-</dd><? } } ?></dl>
-<? if($_DCACHE['heats']['subject']) { ?>
-<ul class="s_clear"><? if(is_array($_DCACHE['heats']['subject'])) { foreach($_DCACHE['heats']['subject'] as $data) { ?><li><? if($adminid == 1) { ?><a class="deloption" href="misc.php?action=removeindexheats&amp;tid=<?=$data['tid']?>" onclick="return removeindexheats()">delete</a><? } ?><a href="viewthread.php?tid=<?=$data['tid']?>"><?=$data['subject']?></a></li><? } } ?></ul>
-<? } ?>
-</div>
-
-<? if($_DCACHE['heats']['image']) { ?>
-<div id="hot_img">
-<a href="viewthread.php?tid=<?=$_DCACHE['heats']['image']['tid']?>&amp;from=indexheats_pic"><img src="<?=$_DCACHE['heats']['image']['thumb']?>" alt="<?=$_DCACHE['heats']['image']['subject']?>" /></a>
-<h2><? if($adminid == 1) { ?><a class="deloption" href="misc.php?action=removeindexheats&amp;tid=<?=$_DCACHE['heats']['image']['tid']?>" onclick="return removeindexheats()">delete</a><? } ?><a href="viewthread.php?tid=<?=$_DCACHE['heats']['image']['tid']?>&amp;from=indexheats"><?=$_DCACHE['heats']['image']['subject']?></a></h2>
-<p class="desc"><?=$_DCACHE['heats']['image']['message']?> ...<a href="viewthread.php?tid=<?=$_DCACHE['heats']['image']['tid']?>&amp;from=indexheats_readmore">View Full</a></p>
-<cite><a href="space.php?uid=<?=$_DCACHE['heats']['image']['authorid']?>&amp;from=indexheats"><?=$_DCACHE['heats']['image']['author']?></a> Post at <? echo dgmdate("$dateformat $timeformat", $_DCACHE['heats']['image']['dateline'] + $timeoffset * 3600); ?></cite>
-</div>
-<? } ?>
-</div>
-<? } } ?>
-
-<?=$pluginhooks['index_hot']?>
-
+<div id="wrap" class="wrap with_side s_clear">
+<div class="main">
+<div class="content">
+<? if($item != 'buddylist') { ?>
 <div class="itemtitle s_clear">
-<p class="right forumcount">
-Today: <em><?=$todayposts?></em>, Yesterday: <em><?=$postdata['0']?></em>, Members: <em><?=$totalmembers?></em>
-</p><ul>
-<li<? if($indexfile == 'classics') { ?> class="current"<? } ?>><a href="<?=$indexname?>?op=classics"><span>Forum</span></a></li>
-<li<? if($indexfile == 'feeds' && !$type) { ?> class="current"<? } ?>><a href="<?=$indexname?>?op=feeds"><span>Forum Feeds</span></a></li>
-<? if($my_status) { ?>
-<li<? if($indexfile == 'feeds' && $type == 'manyou') { ?> class="current"<? } ?>><a href="<?=$indexname?>?op=feeds&type=manyou"><span>Dynamic Application</span></a></li>
+<? if(empty($item) || in_array($item, array('threads', 'posts', 'polls', 'tradestats', 'selltrades', 'buytrades', 'tradethreads', 'reward', 'activities', 'debate'))) { ?>
+<h1>My Posts</h1>
+<div class="right"><select onchange="location.href='my.php?item=<?=$item?><? if($type) { ?>&type=<?=$type?><? } if($filter) { ?>&filter=<?=$filter?><? } ?>&srchfid=' + this.value"><option>All forums</option><?=$forumselect?></select></div>
+<ul>
+<li<? if(empty($item) || $item == 'threads') { ?> class="current"<? } ?>><a href="my.php?item=threads<?=$extrafid?>" hidefocus="true"><span>Thread</span></a></li>
+<li<? if($item == 'posts') { ?> class="current"<? } ?>><a href="my.php?item=posts<?=$extrafid?>" hidefocus="true"><span>Reply</span></a></li>
+<li class="pipe">|</li>
+<li id="polls" <? if($item == 'polls') { ?> class="current"<? } ?>><a href="my.php?item=polls" hidefocus="true"><span>Poll</span></a></li>
+<li id="rewards" onmouseover="showMenu({'ctrlid':this.id})"<? if($item == 'reward') { ?> class="current"<? } ?>><a href="my.php?item=reward&amp;type=stats<?=$extrafid?>" hidefocus="true" class="dropmenu"><span>Reward</span></a></li>
+<li id="activities" onmouseover="showMenu({'ctrlid':this.id})"<? if($item == 'activities') { ?> class="current"<? } ?>><a href="my.php?item=activities&amp;type=orig<?=$extrafid?>" hidefocus="true" class="dropmenu"><span>Activity</span></a></li>
+<li id="debates" onmouseover="showMenu({'ctrlid':this.id})"<? if($item == 'debate') { ?> class="current"<? } ?>><a href="my.php?item=debate&amp;type=orig<?=$extrafid?>" hidefocus="true" class="dropmenu"><span>Debate</span></a></li>
+<? if($tradeopen) { ?><li id="trades" onmouseover="showMenu({'ctrlid':this.id})"<? if(in_array($item, array('tradestats', 'selltrades', 'buytrades', 'tradethreads'))) { ?> class="current"<? } ?>><a href="my.php?item=tradestats<?=$extrafid?>" hidefocus="true" class="dropmenu"><span>Trade</span></a></li><? } ?>
+<?=$pluginhooks['my_navextra']?>
+</ul>
+<? } elseif($item == 'favorites') { ?>
+<h1>Favorite</h1>
+<ul>
+<li id="favorite_threads" <? if($type == 'thread') { ?> class="current"<? } ?>><a href="my.php?item=favorites&amp;type=thread<?=$extrafid?>"><span>Threads</span></a></li>
+<li id="favorite_forums" <? if($type == 'forum') { ?> class="current"<? } ?>><a href="my.php?item=favorites&amp;type=forum<?=$extrafid?>"><span>Forums</span></a></li>
+</ul>
+<? } elseif($item == 'attention') { ?>
+<h1>My Attention</h1>
+<ul>
+<li id="favorite_threads" <? if($type == 'thread') { ?> class="current"<? } ?>><a href="my.php?item=attention&amp;type=thread<?=$extrafid?>"><span>Threads</span></a></li>
+<li id="favorite_forums" <? if($type == 'forum') { ?> class="current"<? } ?>><a href="my.php?item=attention&amp;type=forum<?=$extrafid?>"><span>Forums</span></a></li>
+</ul>
 <? } ?>
-<?=$pluginhooks['index_navbar']?>
-</ul></div>
-
-<?=$pluginhooks['index_top']?>
-
-<div id="feed" class="feed">
-<ul><? if(is_array($feeds)) { foreach($feeds as $value) { if($value['daterange']) { ?>
-</ul><h3>
-<? if($value['daterange'] == $day1) { ?>Today
-<? } elseif($value['daterange'] == $day2) { ?>Yesterday
-<? } elseif($value['daterange'] == $day3) { ?>Day before Yesterday
-<? } else { ?><?=$value['daterange']?><? } ?>
-</h3><ul>
-<? } ?>
-<li class="s_clear">
-<div class="f_icon">
-<img src="<? if(empty($type)) { ?><?=$value['icon']?><? } else { ?><?=$value['icon_image']?><? } ?>" class="apptype" />
-<?=$value['title']?>
-<? if($value['image']) { ?>
-<div class="f_thumb"><? if(is_array($value['image'])) { foreach($value['image'] as $image) { ?><?=$image?><? } } ?></div>
-<? } if($value['general']) { ?>
-<fieldset><ins><?=$value['general']?></ins></fieldset>
-<? } if($value['body']) { ?><div class="summary"><?=$value['body']?></div><? } ?>
 </div>
-</li><? } } ?></ul>
+<? if($forumname) { ?><div class="c_header"><strong>Forum: <?=$forumname?></strong> <a href="my.php?item=<?=$item?><? if($type) { ?>&amp;type=<?=$type?><? } ?>" class="lightlink">(All)</a></div><? } } ?>
+<div class="<? if(!in_array($item, array('tradestats', 'selltrades', 'buytrades', 'tradethreads'))) { ?>threadlist <? } ?>datalist">
+<? if(empty($item) || $item == 'threads') { include template('my_threads', '0', ''); } elseif($item == 'posts') { include template('my_posts', '0', ''); } elseif($item == 'polls') { include template('my_polls', '0', ''); } elseif(in_array($item, array('tradestats', 'selltrades', 'buytrades', 'tradethreads'))) { if($item == 'tradestats') { include template('my_tradestats', '0', ''); } elseif($item == 'selltrades' || $item == 'buytrades') { include template('my_trades', '0', ''); } elseif($item == 'tradethreads') { include template('my_tradethreads', '0', ''); } } elseif($item == 'reward') { include template('my_rewards', '0', ''); } elseif($item == 'activities') { include template('my_activities', '0', ''); } elseif($item == 'debate') { include template('my_debate', '0', ''); } elseif($item == 'attention') { if($type == 'forum') { if($action == 'detail') { include template('my_attention_forums_detail', '0', ''); } else { include template('my_attention_forums', '0', ''); } } else { include template('my_attention', '0', ''); } } elseif($item == 'favorites') { include template('my_favorites', '0', ''); } elseif($item == 'buddylist') { include template('my_buddylist', '0', ''); } ?>
 </div>
-
-<? if(!empty($view)) { ?>
-<div class="s_clear"><?=$multi?></div>
+<ul class="popupmenu_popup titlemenu_popup" id="rewards_menu" style="display: none">
+<li <? if($type == 'question') { ?> class="current"<? } ?>><a href="my.php?item=reward&amp;type=question<?=$extrafid?>">Activities</a></li>
+<li <? if($type == 'answer') { ?> class="current"<? } ?>><a href="my.php?item=reward&amp;type=answer<?=$extrafid?>">I Joined</a></li>
+<li <? if($type == 'stats') { ?> class="current"<? } ?>><a href="my.php?item=reward&amp;type=stats<?=$extrafid?>">Statistics</a></li>
+</ul>
+<ul class="popupmenu_popup titlemenu_popup" id="activities_menu" style="display: none">
+<li <? if($type == 'orig') { ?> class="current"<? } ?>><a href="my.php?item=activities&amp;type=orig<?=$extrafid?>">Activities</a></li>
+<li <? if($type == 'apply') { ?> class="current"<? } ?>><a href="my.php?item=activities&amp;type=apply<?=$extrafid?>">I Joined</a></li>
+</ul>
+<ul class="popupmenu_popup titlemenu_popup" id="debates_menu" style="display: none">
+<li <? if($item == 'debate' && $type == 'orig') { ?> class="current"<? } ?>><a href="my.php?item=debate&amp;type=orig<?=$extrafid?>">Activities</a></li>
+<li <? if($item == 'debate' && $type == 'reply') { ?> class="current"<? } ?>><a href="my.php?item=debate&amp;type=reply<?=$extrafid?>">I Joined</a></li>
+</ul>
+<ul class="popupmenu_popup titlemenu_popup" id="trades_menu" style="display: none">
+<li <? if($item == 'buytrades') { ?> class="current"<? } ?>><a href="my.php?item=buytrades<?=$extrafid?>">Buy</a></li>
+<li <? if($item == 'tradethreads') { ?> class="current"<? } ?>><a href="my.php?item=tradethreads<?=$extrafid?>">Sell</a></li>
+<li <? if($item == 'selltrades') { ?> class="current"<? } ?>><a href="my.php?item=selltrades&amp;filter=all">Seller Logs</a></li>
+<li <? if($item == 'tradestats') { ?> class="current"<? } ?>><a href="my.php?item=tradestats<?=$extrafid?>">Trade Log</a></li>
+<li><a href="eccredit.php?uid=<?=$discuz_uid?>" target="_blank">Rate</a></li>
+</ul>
+</div>
+</div>
+<div class="side"><h2>User CP</h2>
+<div class="sideinner">
+<ul class="tabs">
+<? if($regverify == 1 && $groupid == 8) { ?>
+<li<? if(CURSCRIPT=='memcp' && $action == 'emailverify') { ?> class="current"<? } ?>><a href="member.php?action=emailverify">Reverify Email</a></li>
+<? } if($regverify == 2 && $groupid == 8) { ?>
+<li<? if(CURSCRIPT=='memcp' && $action == 'validating') { ?> class="current"<? } ?>><a href="memcp.php?action=validating">User Validating</a></li>
+<li<? if(CURSCRIPT=='memcp' && $action == 'profile' && $typeid == '2') { ?> class="current"<? } ?>><a href="memcp.php?action=profile&amp;typeid=2">Personal Profile</a></li>
 <? } else { ?>
-<div class="pages s_clear">
-<a class="next" href="<? if(empty($type)) { ?><?=$indexname?>?view=all&op=feeds<? } else { ?>userapp.php<? } ?>">View all</a>
+<li<? if(CURSCRIPT=='memcp' && $action == 'profile' && $typeid == '3') { ?> class="current"<? } ?>><a href="memcp.php?action=profile&amp;typeid=3" id="uploadavatar" prompt="uploadavatar">Modify Avatar</a></li>
+<li<? if(CURSCRIPT=='memcp' && $action == 'profile' && $typeid == '2') { ?> class="current"<? } ?>><a href="memcp.php?action=profile&amp;typeid=2">Personal Profile</a></li>
+<li<? if(CURSCRIPT=='pm') { ?> class="current"<? } ?>><a href="pm.php">P.M.</a></li>
+<li<? if(CURSCRIPT=='notice') { ?> class="current"<? } ?>><a href="notice.php">Notice</a></li>
+<li<? if(CURSCRIPT=='my' && $item == 'buddylist') { ?> class="current"<? } ?>><a href="my.php?item=buddylist&amp;<?=$extrafid?>">Buddy</a></li>
+<? if($regstatus > 1) { ?><li><a href="invite.php">Invite</a></li><? } if($ucappopen['UCHOME']) { ?>
+<li><a href="<?=$uchomeurl?>/space.php?uid=<?=$discuz_uid?>" target="_blank">My Space</a></li>
+<? } elseif($ucappopen['XSPACE']) { ?>
+<li><a href="<?=$xspaceurl?>/?uid-<?=$discuz_uid?>" target="_blank">My Space</a></li>
+<? } } ?>
+</ul>
+</div>
+
+<? if($groupid != 8) { ?>
+<hr class="shadowline" />
+
+<div class="sideinner">
+<ul class="tabs">
+<li<? if(CURSCRIPT=='my' && in_array($item, array('threads', 'posts', 'polls', 'reward', 'activities', 'debate', 'buytrades', 'tradethreads', 'selltrades', 'tradestats'))) { ?> class="current"<? } ?>><a href="my.php?item=threads<?=$extrafid?>">My Posts</a></li>
+<li<? if(CURSCRIPT=='my' && $item == 'favorites') { ?> class="current"<? } ?>><a href="my.php?item=favorites&amp;type=thread<?=$extrafid?>">Favorite</a></li>
+<li<? if(CURSCRIPT=='my' && $item == 'attention') { ?> class="current"<? } ?>><a href="my.php?item=attention&amp;type=thread<?=$extrafid?>">My Attention</a></li>
+<? if(!empty($plugins['plinks_my'])) { if(is_array($plugins['plinks_my'])) { foreach($plugins['plinks_my'] as $module) { if(!$module['adminid'] || ($module['adminid'] && $adminid > 0 && $module['adminid'] >= $adminid)) { ?><li<? if(CURSCRIPT == 'plugin' && $_GET['id'] == $module['id']) { ?> class="current"<? } ?>><?=$module['url']?></li><? } } } } ?>
+</ul>
+</div>
+
+<hr class="shadowline" />
+
+<div class="sideinner">
+<ul class="tabs">
+<li<? if(CURSCRIPT=='memcp' && $action == 'credits') { ?> class="current"<? } ?>><a href="memcp.php?action=credits">My Credits</a></li>
+<li<? if(CURSCRIPT=='memcp' && $action == 'usergroups') { ?> class="current"<? } ?>><a href="memcp.php?action=usergroups">User Group</a></li>
+<li<? if(CURSCRIPT=='task') { ?> class="current"<? } ?>><a href="task.php">Task</a></li>
+<? if($medalstatus) { ?><li<? if(CURSCRIPT=='medal') { ?> class="current"<? } ?>><a href="medal.php">Medals List</a></li><? } if($magicstatus) { ?><li<? if(CURSCRIPT=='magic') { ?> class="current"<? } ?>><a href="magic.php">Props</a></li><? } if(!empty($plugins['plinks_tools'])) { if(is_array($plugins['plinks_tools'])) { foreach($plugins['plinks_tools'] as $module) { if(!$module['adminid'] || ($module['adminid'] && $adminid > 0 && $module['adminid'] >= $adminid)) { ?><li<? if(CURSCRIPT == 'plugin' && $_GET['id'] == $module['id']) { ?> class="current"<? } ?>><?=$module['url']?></li><? } } } } ?>
+</ul>
 </div>
 <? } ?>
 
-<?=$pluginhooks['index_bottom']?>
-</div></div>
+<hr class="shadowline" />
 
-<? if($infosidestatus['allow'] == 2) { ?>
-<div id="sidebar" class="side" style="<?=$collapse['sidebar']?>">
-<? if(!empty($qihoo['status']) && ($qihoo['searchbox'] & 1)) { ?>
-<div id="qihoosearch" class="sidebox">
-<? if(!empty($qihoo['status']) && ($qihoo['searchbox'] & 1)) { ?>
-<form method="post" action="search.php?srchtype=qihoo" onSubmit="this.target='_blank';">
-<input type="hidden" name="searchsubmit" value="yes" />
-<input type="text" class="txt" name="srchtxt" value="<?=$qihoo_searchboxtxt?>" size="20" />
-<select name="stype">
-<option value="" selected="selected">Full Text</option>
-<option value="1">Subject</option>
-<option value="2">Author</option>
-</select>
-&nbsp;<button name="searchsubmit" type="submit" value="true">Search</button>
-</form>
+<div class="sideinner">
+<ul class="tabs">
+<li<? if(CURSCRIPT=='memcp' && $action == 'profile' && $typeid == '5') { ?> class="current"<? } ?>><a href="memcp.php?action=profile&amp;typeid=5">Personalize</a></li>
+<li<? if(CURSCRIPT=='memcp' && $action == 'profile' && $typeid == '1') { ?> class="current"<? } ?>><a href="memcp.php?action=profile&amp;typeid=1">Password & Security</a></li>
+</ul>
+</div>
 
-<? if(!empty($qihoo['links']['keywords'])) { ?>
-<strong>Hot Search</strong><? if(is_array($qihoo['links']['keywords'])) { foreach($qihoo['links']['keywords'] as $link) { ?><?=$link?>&nbsp;<? } } } if($customtopics) { ?>
-<strong>Custom Topics</strong>&nbsp;&nbsp;<?=$customtopics?> [<a href="javascript:;" onclick="showWindow('customtopics', 'misc.php?action=customtopics')">Edit</a>]<br />
-<? } if(!empty($qihoo['links']['topics'])) { ?>
-<strong>Forum Topics</strong>&nbsp;<? if(is_array($qihoo['links']['topics'])) { foreach($qihoo['links']['topics'] as $url) { ?><?=$url?> &nbsp;<? } } } } ?>
+<hr class="shadowline" />
+
+<div class="sideinner">
+<ul class="tabs">
+<li>My Credits: <?=$credits?></li><? if(is_array($extcredits)) { foreach($extcredits as $id => $credit) { ?><li><?=$credit['title']?>: <?=$GLOBALS['extcredits'.$id]?> <?=$credit['unit']?></li><? } } ?></ul>
 </div>
-<? } if($infosidestatus['2']) { if(!empty($qihoo['status']) && ($qihoo['searchbox'] & 1)) { ?>
-<hr class="shadowline"/>
-<? } ?>
-<div id="infoside">
-<? if(empty($gid)) { request($infosidestatus, 0, 2); } else { request($infosidestatus, 1, 2); } ?>
+<?=$pluginhooks['memcp_side']?></div>
 </div>
-<? } ?>
-</div>
-<? } ?>
+
+<script type="text/javascript">
+function attentionToggleShow(id) {
+checkbox = $(id);
+url = window.location.href;
+if(checkbox.checked) {
+url = url.replace('&filter=new', '');
+url = url.replace('filter=new&', '');
+} else {
+if(url.indexOf('filter=all') != -1) {
+url = url.replace('filter=all', 'filter=new');
+} else {
+url += '&filter=new';
+}
+}
+window.location = url;
+}
+</script>
 </div><? if(!empty($plugins['jsmenu'])) { ?>
 <ul class="popupmenu_popup headermenu_popup" id="plugin_menu" style="display: none"><? if(is_array($plugins['jsmenu'])) { foreach($plugins['jsmenu'] as $module) { ?>     <? if(!$module['adminid'] || ($module['adminid'] && $adminid > 0 && $module['adminid'] >= $adminid)) { ?>
      <li><?=$module['url']?></li>

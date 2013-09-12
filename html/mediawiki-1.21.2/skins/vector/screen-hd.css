@@ -1,25 +1,21 @@
 /* Vector screen styles for high definition displays */
 
 div#content {
-	margin-left: 11em;
+	margin-left: 1em;
 	padding: 1.25em 1.5em 1.5em 1.5em;
 }
 #p-logo {
 	left:.5em;
 }
-#p-logo a{width:92px;height:92px;background-size:contain;margin:1em;}
+#p-logo a{width:92px;height:92px;background-size:contain;margin:1em 0;}
 div#footer {
-	margin-left: 11em;
 	padding: 1.25em;
 }
 #mw-panel {
 	padding-left: 0.5em;
 }
-#p-search {
-	margin-right: 1em;
-}
 #left-navigation {
-	left: 11em;
+	left: 1em;
 }
 #p-personal {
 	right: 1em;
@@ -28,31 +24,3 @@ div#footer {
 	margin-left: 11em;
 }
 
-/*add style*/
-#mw-panel ul li{
-	list-style:none;
-	font-size:14px;
-}
-ul.addul {background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAAABCAMAAAA7MLYKAAAAS1BMVEXb29vy8vLv7+/c3NzZ2dni4uLr6+vt7e3s7Ozw8PDn5+fj4+Ph4eHd3d3f39/o6Ojl5eXp6enx8fHa2trg4ODq6urk5OTz8/PY2NjolWftAAAAO0lEQVR4XrXAhwGAMAgEQB5I71X3n9QpPHqAGZidt2e02G8yedciQkv1/YPqIpFSdzbp9tjGsd4xhwl8yuMKHhkJhm8AAAAASUVORK5CYII=) left bottom no-repeat;
-padding-bottom:.4em;
-margin-left:15px;
-}
-ul.addul li{padding-left:10px;}
-ul.addul li a{color:#c00;}
-/*.webnavigatin ul{float:right;position:absolute;top:2em;right:0;}
-.webnavigatin ul li{float:left;
-float: left;
-	display: block;
-	line-height: 30px;
-	margin: 0 20px;}
-	.webnavigatin ul li:last-child{
-	margin-right:5px;}
-.webnavigatin ul li a{font-size:1.2em;padding:3px 8px;}
-.webnavigatin ul li a:hover,.navigatin ul li a.current {
-	color: #c00;
-	text-decoration:none;
-	border-bottom:3px solid #c00;
-	transition:all .3s;
-	-webkit-transition:all .3s;
-	-moz-transition:all .3s ;
-}*/

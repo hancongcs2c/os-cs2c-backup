@@ -17,7 +17,7 @@
 <?=$rsshead?>
 <?=$extrahead?><link rel="stylesheet" type="text/css" href="forumdata/cache/style_<?=STYLEID?>_common.css?<?=VERHASH?>" /><link rel="stylesheet" type="text/css" href="forumdata/cache/scriptstyle_<?=STYLEID?>_<?=CURSCRIPT?>.css?<?=VERHASH?>" />
 <? if($forum['ismoderator']) { ?>
-<link href="forumdata/cache/style_4_moderator.css?oA8" rel="stylesheet" type="text/css" />
+<link href="forumdata/cache/style_4_moderator.css?g1J" rel="stylesheet" type="text/css" />
 <? } ?><script type="text/javascript">var STYLEID = '<?=STYLEID?>', IMGDIR = '<?=IMGDIR?>', VERHASH = '<?=VERHASH?>', charset = '<?=$charset?>', discuz_uid = <?=$discuz_uid?>, cookiedomain = '<?=$cookiedomain?>', cookiepath = '<?=$cookiepath?>', attackevasive = '<?=$attackevasive?>', disallowfloat = '<?=$disallowfloat?>', creditnotice = '<? if($creditnotice) { ?><?=$creditnames?><? } ?>', <? if(in_array(CURSCRIPT, array('viewthread', 'forumdisplay'))) { ?>gid = parseInt('<?=$thisgid?>')<? } elseif(CURSCRIPT == 'index') { ?>gid = parseInt('<?=$gid?>')<? } else { ?>gid = 0<? } ?>, fid = parseInt('<?=$fid?>'), tid = parseInt('<?=$tid?>')</script>
 <script src="<?=$jspath?>common.js?<?=VERHASH?>" type="text/javascript"></script>
 </head>
@@ -25,21 +25,54 @@
 *{
 text-shadow: 1px 0 1px #ddd;
 font-family: Verdana, Geneva, sans-serif;
+font-size:14px;
 }
-
-#umenu{margin-top:1.5em;}
-h2 a:hover{text-decoration:none;}
-.wrap.s_clear h2 a img{width:54px;height:54px;}
-.wrap.s_clear h2 a span{font-size:2em;color: #999;
+html{background-color:#fefefe;}
+body{width:1024px;margin:0 auto;}
+#onlinelist dt, #onlinelist dd  ,.forumlinks, .forumimglink, .forumtxtlink, .list td, .list th{border-top:1px dotted #ddd;}
+.postbtn, .replybtn{background:none;background-color:#cc0000;}
+.postbtn a, .replybtn a{letter-spacing:1px;padding-left:0;}
+#nav{background:none;text-indent:0;}
+#umenu{margin-top:3.65em;}
+#umenu a{color:#999;margin:0;}
+.navul a:hover,#footlink a:hover,h2 a:hover{text-decoration:none;}
+#header .wrap{padding:15px 0 20px;}
+#header .wrap.s_clear{width:100%;}
+.wrap.s_clear h2 a img{width:92px;height:92px;}
+.wrap.s_clear h2 a span,.wrap.s_clear h2 a small{
+position:relative;
+top:-54px;
+left:-4px;
+}
+.wrap.s_clear h2 a span{font-size:2em;color: #ddd;
 text-shadow: 1px 0 1px #ddd;
 -webkit-text-shadow: 1px 0 1px #ddd;
 -moz-text-shadow: 1px 0 1px #ddd;
-font-family: Verdana, Geneva, sans-serif;
 font-weight: bold;
-position: relative;
-top: -20px;
-left: 10px;
 }
+.wrap.s_clear h2 a small{
+display:inline-block;
+font-size: .8em;
+color: #666;
+font-weight: normal;
+margin-top: 5px;
+margin-left:96px;
+}
+.navul{display:inline-block;margin:7.35em 0 2em;float:right;}
+.navul li{float:left;}
+.navul li a{font-size: 1.2em;
+padding: 3px 8px;margin:0 20px;}
+.navul li a.current{margin-right:0;}
+.navul li a:hover, .navul li a.current {
+color: #c00;
+border-bottom: 3px solid #c00;
+transition: all .3s;
+-webkit-transition: all .3s;
+-moz-transition: all .3s;
+}
+.t_l, .t_c, .t_r, .m_l, .m_r, .b_l, .b_c, .b_r{background-color:#cc0000;}
+.nofloat{background-color:#fefefe;}
+input{border:1px solid #ccc;padding:8px 8px;}
 </style>
 <body id="<?=CURSCRIPT?>" onkeydown="if(event.keyCode==27) return false;">
 
@@ -47,7 +80,17 @@ left: 10px;
 
 <div id="header">
 <div class="wrap s_clear">
-<h2><a href="<?=$indexname?>" title="<?=$bbname?>"><?=BOARDLOGO?> <span>Forum</span></a></h2>
+<h2><a href="<?=$indexname?>" title="forum of cs2c opensource community"><?=BOARDLOGO?> <span>blah blah</span><br /><small>Lorem ipsum dolor sit amet, consectetuer adipiscing</small></a></h2>
+<ul class="navul">
+<li><a href="http://10.1.50.7/osc/index.html">Community</a></li>
+<li><a href="http://10.1.50.7/osc/html/project.html">Project</a></li>
+<li><a href="http://10.1.50.7/mediawiki-1.21.2/index.php/CS2C_OS:Current_events">News</a></li>
+<li><a href="http://10.1.50.7/mediawiki-1.21.2/index.php/Main_Page">Wiki</a></li>
+<li><a href="http://10.1.50.7/forum/upload/index.php" class="current">Forum</a></li>
+<li style="clear:left;"></li>
+
+</ul>
+
 <div id="umenu">
 <? if($discuz_uid) { ?>
 <cite><a href="space.php?uid=<?=$discuz_uid?>" class="noborder"><?=$discuz_userss?></a><? if($allowinvisible) { ?><span id="loginstatus"><? if(!empty($invisible)) { ?><a href="member.php?action=switchstatus" onclick="ajaxget(this.href, 'loginstatus');doane(event);">Invisible Mode</a><? } else { ?><a href="member.php?action=switchstatus" title="Switch to Invisible Mode" onclick="ajaxget(this.href, 'loginstatus');doane(event);">Online Mode</a><? } ?></span><? } ?></cite>
@@ -70,11 +113,11 @@ left: 10px;
 <a href="logging.php?action=logout&amp;formhash=<?=FORMHASH?>">Logout</a>
 <? } elseif(!empty($_DCOOKIE['loginuser'])) { ?>
 <cite><a id="loginuser" class="noborder"><?=$_DCOOKIE['loginuser']?></a></cite>
-<a href="logging.php?action=login" onclick="showWindow('login', this.href);return false;">Activation</a>
+<a href="logging.php?action=login" onclick="showWindow('login', this.href);return false;">Activation</a>  
 <a href="logging.php?action=logout&amp;formhash=<?=FORMHASH?>">Logout</a>
 <? } else { ?>
-<a href="<?=$regname?>" onclick="showWindow('register', this.href);return false;" class="noborder"><?=$reglinkname?></a>
-<a href="logging.php?action=login" onclick="showWindow('login', this.href);return false;">Login</a>
+<a href="logging.php?action=login" onclick="showWindow('login', this.href);return false;">Login </a>|<a href="<?=$regname?>" onclick="showWindow('register', this.href);return false;" class="noborder"> <?=$reglinkname?></a>
+
 <? } ?>
 </div>
 <div id="ad_headerbanner"><? if($admode && !empty($advlist['headerbanner'])) { ?><?=$advlist['headerbanner']?><? } ?></div>
