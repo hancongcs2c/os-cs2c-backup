@@ -9,10 +9,16 @@
 #toc,
 .toc,
 .mw-warning {
-	border: 1px solid #aaa;
-	background-color: #f9f9f9;
-	padding: 5px;
+	display:inline-block;
+	border: 1px solid #ddd;
+	background-color: #fefefe;
+	padding: 1em 1.5em;
 	font-size: 95%;
+	margin:1em 0 2em;
+}
+#toc tr:first-child,.toc tr:first-child{
+	background-color:#fefefe;
+	font-weight:normal;
 }
 #toc h2,
 .toc h2 {

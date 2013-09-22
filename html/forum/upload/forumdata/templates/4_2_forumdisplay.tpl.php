@@ -1,9 +1,9 @@
 <? if(!defined('IN_DISCUZ')) exit('Access Denied'); hookscriptoutput('forumdisplay');
 0
-|| checktplrefresh('/var/www/html/forum/upload/./templates/default/forumdisplay.htm', '/var/www/html/forum/upload/./templates/default/header.htm', 1378868990, '2', './templates/colors')
-|| checktplrefresh('/var/www/html/forum/upload/./templates/default/forumdisplay.htm', '/var/www/html/forum/upload/./templates/default/recommend.htm', 1378868990, '2', './templates/colors')
-|| checktplrefresh('/var/www/html/forum/upload/./templates/default/forumdisplay.htm', '/var/www/html/forum/upload/./templates/default/footer.htm', 1378868990, '2', './templates/colors')
-|| checktplrefresh('/var/www/html/forum/upload/./templates/default/forumdisplay.htm', '/var/www/html/forum/upload/./templates/default/jsmenu.htm', 1378868990, '2', './templates/colors')
+|| checktplrefresh('/var/www/html/forum/upload/./templates/default/forumdisplay.htm', '/var/www/html/forum/upload/./templates/default/header.htm', 1379492540, '2', './templates/colors')
+|| checktplrefresh('/var/www/html/forum/upload/./templates/default/forumdisplay.htm', '/var/www/html/forum/upload/./templates/default/recommend.htm', 1379492540, '2', './templates/colors')
+|| checktplrefresh('/var/www/html/forum/upload/./templates/default/forumdisplay.htm', '/var/www/html/forum/upload/./templates/default/footer.htm', 1379492540, '2', './templates/colors')
+|| checktplrefresh('/var/www/html/forum/upload/./templates/default/forumdisplay.htm', '/var/www/html/forum/upload/./templates/default/jsmenu.htm', 1379492540, '2', './templates/colors')
 ;?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -14,7 +14,7 @@
 <meta name="keywords" content="<?=$metakeywords?><?=$seokeywords?>" />
 <meta name="description" content="<?=$metadescription?> <?=$bbname?> <?=$seodescription?> - Discuz! Board" />
 <meta name="generator" content="Discuz! <?=$version?>" />
-<meta name="author" content="Discuz! Team and Comsenz UI Team" />
+<meta name="author" content="cong.han@cs2c.com.cn" />
 <meta name="copyright" content="2001-2009 Comsenz Inc." />
 <meta name="MSSmartTagsPreventParsing" content="True" />
 <meta http-equiv="MSThemeCompatible" content="Yes" />
@@ -36,7 +36,13 @@ font-size:14px;
 html{background-color:#fefefe;}
 body{width:1024px;margin:0 auto;}
 #onlinelist dt, #onlinelist dd  ,.forumlinks, .forumimglink, .forumtxtlink, .list td, .list th{border-top:1px dotted #ddd;}
-.postbtn, .replybtn{background:none;background-color:#cc0000;}
+.postbtn, .replybtn{background:none;background-color:#ffb8b8;}
+.postbtn:hover, .replybtn:hover{background:none;background-color:#cc0000;
+transition:all .1s ease-in-out .1s;
+-webkit-transition:all .1s ease-in-out .1s;
+-moz-transition:all .1s ease-in-out .1s;
+}
+.pages a:hover, .pageback a, .pages a.next{border:0;}
 .postbtn a, .replybtn a{letter-spacing:1px;padding-left:0;}
 #nav{background:none;text-indent:0;}
 #umenu{margin-top:3.65em;}
@@ -44,10 +50,10 @@ body{width:1024px;margin:0 auto;}
 .navul a:hover,#footlink a:hover,h2 a:hover{text-decoration:none;}
 #header .wrap{padding:15px 0 20px;}
 #header .wrap.s_clear{width:100%;}
-.wrap.s_clear h2 a img{width:92px;height:92px;}
+.wrap.s_clear h2 a img{width:92px;}
 .wrap.s_clear h2 a span,.wrap.s_clear h2 a small{
 position:relative;
-top:-54px;
+top:-42px;
 left:-4px;
 }
 .wrap.s_clear h2 a span{font-size:2em;color: #ddd;
@@ -64,14 +70,14 @@ font-weight: normal;
 margin-top: 5px;
 margin-left:96px;
 }
-.navul{display:inline-block;margin:7.35em 0 2em;float:right;}
+.navul{display:inline-block;margin:6.5em 0 2em;float:right;}
 .navul li{float:left;}
-.navul li a{font-size: 1.2em;
-padding: 3px 8px;margin:0 20px;}
+.navul li a{font-size: 16px;
+padding: 0 2px;margin:0 20px;}
 .navul li a.current{margin-right:0;}
 .navul li a:hover, .navul li a.current {
 color: #c00;
-border-bottom: 3px solid #c00;
+border-bottom: 1px dotted #c00;
 transition: all .3s;
 -webkit-transition: all .3s;
 -moz-transition: all .3s;
@@ -79,6 +85,13 @@ transition: all .3s;
 .t_l, .t_c, .t_r, .m_l, .m_r, .b_l, .b_c, .b_r{background-color:#cc0000;}
 .nofloat{background-color:#fefefe;}
 input{border:1px solid #ccc;padding:8px 8px;}
+.postauthor a img{border-radius:60px;
+-webkit-border-radius:60px;
+-moz-border-radius:60px;}
+
+.useraction{
+display:none;
+}
 </style>
 <body id="<?=CURSCRIPT?>" onkeydown="if(event.keyCode==27) return false;">
 
@@ -88,11 +101,12 @@ input{border:1px solid #ccc;padding:8px 8px;}
 <div class="wrap s_clear">
 <h2><a href="<?=$indexname?>" title="forum of cs2c opensource community"><?=BOARDLOGO?> <span>blah blah</span><br /><small>Lorem ipsum dolor sit amet, consectetuer adipiscing</small></a></h2>
 <ul class="navul">
-<li><a href="http://10.1.50.7/osc/index.html">Community</a></li>
-<li><a href="http://10.1.50.7/osc/html/project.html">Project</a></li>
-<li><a href="http://10.1.50.7/mediawiki-1.21.2/index.php/CS2C_OS:Current_events">News</a></li>
-<li><a href="http://10.1.50.7/mediawiki-1.21.2/index.php/Main_Page">Wiki</a></li>
-<li><a href="http://10.1.50.7/forum/upload/index.php" class="current">Forum</a></li>
+<li><a href="/index.html">Home</a></li>
+<li><a href="/mediawiki-1.21.2/index.php/Migration_center">Migration Center</a></li>
+<li><a href="/mediawiki-1.21.2/index.php/Project">Project</a></li>
+<li><a href="/mediawiki-1.21.2/index.php/News">News</a></li>
+<li><a href="/mediawiki-1.21.2/index.php/Main_Page">Wiki</a></li>
+<li><a href="/forum/upload/index.php" class="current">Forum</a></li>
 <li style="clear:left;"></li>
 
 </ul>

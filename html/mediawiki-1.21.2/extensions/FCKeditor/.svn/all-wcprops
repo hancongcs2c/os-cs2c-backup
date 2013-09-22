@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/mediawiki/!svn/ver/112820/trunk/extensions/FCKeditor
+END
+FCKeditorEditPage.body.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/mediawiki/!svn/ver/93414/trunk/extensions/FCKeditor/FCKeditorEditPage.body.php
+END
+FCKeditor.popup.html
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/mediawiki/!svn/ver/93414/trunk/extensions/FCKeditor/FCKeditor.popup.html
+END
+FCKeditor.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/mediawiki/!svn/ver/108997/trunk/extensions/FCKeditor/FCKeditor.php
+END
+FCKeditorSkin.body.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/mediawiki/!svn/ver/104210/trunk/extensions/FCKeditor/FCKeditorSkin.body.php
+END
+FCKeditorSajax.body.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/mediawiki/!svn/ver/104210/trunk/extensions/FCKeditor/FCKeditorSajax.body.php
+END
+FCKeditorParserOptions.body.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/mediawiki/!svn/ver/93414/trunk/extensions/FCKeditor/FCKeditorParserOptions.body.php
+END
+FCKeditorParser.body.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/mediawiki/!svn/ver/104210/trunk/extensions/FCKeditor/FCKeditorParser.body.php
+END
+FCKeditorParserWrapper.body.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svnroot/mediawiki/!svn/ver/93414/trunk/extensions/FCKeditor/FCKeditorParserWrapper.body.php
+END
+fckeditor_config.js
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/mediawiki/!svn/ver/93414/trunk/extensions/FCKeditor/fckeditor_config.js
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/mediawiki/!svn/ver/93414/trunk/extensions/FCKeditor/README.txt
+END
+FCKeditor.body.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/mediawiki/!svn/ver/108997/trunk/extensions/FCKeditor/FCKeditor.body.php
+END
+OBSOLETE
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/mediawiki/!svn/ver/93705/trunk/extensions/FCKeditor/OBSOLETE
+END
+FCKeditor.i18n.magic.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svnroot/mediawiki/!svn/ver/108997/trunk/extensions/FCKeditor/FCKeditor.i18n.magic.php
+END
+FCKeditor.i18n.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/mediawiki/!svn/ver/107261/trunk/extensions/FCKeditor/FCKeditor.i18n.php
+END

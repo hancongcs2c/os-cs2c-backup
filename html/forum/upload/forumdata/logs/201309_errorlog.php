@@ -3,3 +3,4 @@
 <?PHP exit;?>	1378862106	MySQL	10.1.50.78|10.1.50.78	index.php : Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2) -
 <?PHP exit;?>	1378862113	MySQL	10.1.50.10|10.1.50.10	index.php : Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2) -
 <?PHP exit;?>	1378862334	MySQL	10.1.50.10|10.1.50.10	index.php : Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2) -
+<?PHP exit;?>	1379050675	MySQL	10.1.50.8|10.1.50.8	index.php : Can't connect to local MySQL server through socket '/var/lib/mysql/mysql.sock' (2) -

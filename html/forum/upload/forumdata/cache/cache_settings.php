@@ -1,7 +1,7 @@
 <?php
 //Discuz! cache file, DO NOT modify me!
-//Created: Sep 12, 2013, 13:01
-//Identify: 17230bbb68b1702586383142c7cc8eb3
+//Created: Sep 22, 2013, 15:16
+//Identify: 1e6297ead7f37694a1fa0a751b9b26d7
 
 $_DCACHE['settings'] = array (
   'accessemail' => '',
@@ -232,7 +232,7 @@ $_DCACHE['settings'] = array (
     ),
   ),
   'hideprivate' => '1',
-  'historyposts' => '1	1',
+  'historyposts' => '0	1',
   'hottopic' => '10',
   'icp' => '',
   'imagelib' => '0',
@@ -489,7 +489,7 @@ $_DCACHE['settings'] = array (
   'totalmembers' => 4,
   'lastmember' => 'hancong',
   'cachethreadon' => 0,
-  'cronnextrun' => '1379001600',
+  'cronnextrun' => '1379865600',
   'styles' => 
   array (
     4 => 'red',

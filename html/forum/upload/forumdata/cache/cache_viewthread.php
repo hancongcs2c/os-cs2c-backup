@@ -1,7 +1,7 @@
 <?php
 //Discuz! cache file, DO NOT modify me!
-//Created: Sep 10, 2013, 7:01
-//Identify: c1ce3369fd04f74b9cdee51a76fba59f
+//Created: Sep 22, 2013, 15:16
+//Identify: ea56b92e7b3256829b2366cdc01e701e
 
 $_DCACHE['forums'] = array (
   1 => 
@@ -568,9 +568,9 @@ $_DCACHE['advs'] = array (
 );
 
 $_DCACHE['tags'] = array (
-  1 => '[\'\']',
-  0 => '[\'\']',
-  2 => '0',
+  1 => '[\'Windows\',\'Migration\']',
+  0 => '[\'Windows\',\'Migration\']',
+  2 => '2',
 );
 
 $_DCACHE['custominfo'] = array (

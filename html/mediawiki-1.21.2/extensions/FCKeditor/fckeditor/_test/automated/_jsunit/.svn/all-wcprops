@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/1825/FCKeditor/branches/versions/2.6.x/_test/automated/_jsunit
+END
+logging.properties
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_test/automated/_jsunit/logging.properties
+END
+index.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_test/automated/_jsunit/index.jsp
+END
+changelog.txt
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_test/automated/_jsunit/changelog.txt
+END
+jsunit.properties.sample
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_test/automated/_jsunit/jsunit.properties.sample
+END
+readme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_test/automated/_jsunit/readme.txt
+END
+testRunner.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_test/automated/_jsunit/testRunner.html
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_test/automated/_jsunit/build.xml
+END

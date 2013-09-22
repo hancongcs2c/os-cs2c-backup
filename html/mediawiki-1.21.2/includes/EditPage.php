@@ -335,7 +335,7 @@ class EditPage {
 	 * the newly-edited page.
 	 */
 	function edit() {
-		global $wgOut, $wgRequest, $wgUser;
+		global $wgOut, $wgRequest, $wgUser, $wgParser, $wgTitle;
 		// Allow extensions to modify/prevent this form or submission
 		if ( !wfRunHooks( 'AlternateEdit', array( $this ) ) ) {
 			return;
@@ -3007,6 +3007,14 @@ HTML
 				return $previewHTML;
 			}
 
+
+			#wfProfileIn( $fname );
+
+			#if ($wgUser->getOption( 'showtoolbar' ) && !$wgUser->getOption( 'riched_disable' )) {
+			#	$oldTextBox1 = $this->tExtbox1;
+			#	$this->importFormData( $wgRequest );
+			#}
+ 
 			if ( $this->mTriedSave && !$this->mTokenOk ) {
 				if ( $this->mTokenOkExceptSuffix ) {
 					$note = wfMessage( 'token_suffix_mismatch' )->plain();
@@ -3103,6 +3111,11 @@ HTML
 			'class' => 'mw-content-' . $pageLang->getDir() );
 		$previewHTML = Html::rawElement( 'div', $attribs, $previewHTML );
 
+		#if ($wgUser->getOption( 'showtoolbar' ) && !
+		#	$wgUser->getOption( 'riched_disable' )) {
+		#	$this->textbox1 = $oldTextBox1;
+		#}
+ 
 		wfProfileOut( __METHOD__ );
 		return $previewhead . $previewHTML . $this->previewTextAfterContent;
 	}

@@ -2,14 +2,18 @@
 
 div#content {
 	margin-left: 1em;
-	padding: 1.25em 1.5em 1.5em 1.5em;
+	padding:0 0 1.5em 0;
 }
+
+div#content a{color:#345690;}
 #p-logo {
 	left:.5em;
+	height:113px;
 }
 #p-logo a{width:92px;height:92px;background-size:contain;margin:1em 0;}
 div#footer {
-	padding: 1.25em;
+	padding: 1em 1.5em;
+	border-top:1px dotted #ddd;
 }
 #mw-panel {
 	padding-left: 0.5em;
@@ -23,4 +27,3 @@ div#footer {
 #mw-head-base {
 	margin-left: 11em;
 }
-

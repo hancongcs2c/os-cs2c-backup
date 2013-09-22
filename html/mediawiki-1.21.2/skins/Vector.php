@@ -174,17 +174,17 @@ class VectorTemplate extends BaseTemplate {
 			<!-- logo -->
 			<div id="p-logo" role="banner">
 				<a style="background-image: url(<?php $this->text( 'logopath' ) ?>);" href="<?php echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] ) ?>" <?php echo Xml::expandAttributes( Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) ) ?>>
-			</a> <span>blah blah</span><br><small>Lorem ipsum dolor sit amet, consectetuer adipiscing</small>
+			</a> <span>Migration to Linux</span><br><small>Devoted to Technology and Solutions</small>
 			</div>
+			<div style="clear:both;"></div>
 			<!-- /logo -->
 			<ul class="addul">
 			
 			<li><a href="/index.html">Home</a></li>
-			<li><a href="/osc/html/community.html">Community</a></li>
-			<li><a href="/osc/html/project.html">Project</a></li>
-			<li><a href="/osc/html/migrating.html">Migrating Center</a></li>
-			<li><a href="/mediawiki-1.21.2/index.php/CS2C_OS:Current_events">News</a></li>
-			<li><a href="/mediawiki-1.21.2/index.php/Main_Page" class="current">Wiki</a></li>
+			<li><a href="/mediawiki-1.21.2/index.php/Migration_center">Migration Center</a></li>
+			<li><a href="/mediawiki-1.21.2/index.php/Project">Project</a></li>
+			<li><a href="/mediawiki-1.21.2/index.php/News">News</a></li>
+			<li><a href="/mediawiki-1.21.2/index.php/Main_Page">Wiki</a></li>
 			<li><a href="/forum/upload/index.php" class="last">Forum</a></li>
 
 			<div style="clear:left;"></div>
