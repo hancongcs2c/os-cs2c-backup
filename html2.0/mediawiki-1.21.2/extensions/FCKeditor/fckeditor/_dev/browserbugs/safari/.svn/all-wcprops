@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_dev/browserbugs/safari
+END
+paste.html
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_dev/browserbugs/safari/paste.html
+END
+row_display.html
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_dev/browserbugs/safari/row_display.html
+END
+createContextualFragment.html
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_dev/browserbugs/safari/createContextualFragment.html
+END
+table-layout-fixed.html
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_dev/browserbugs/safari/table-layout-fixed.html
+END
+nbsp_innerHTML.html
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_dev/browserbugs/safari/nbsp_innerHTML.html
+END
+events_designmode.html
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_dev/browserbugs/safari/events_designmode.html
+END
+iframe100percent.html
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_dev/browserbugs/safari/iframe100percent.html
+END
+1462_reduced.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_dev/browserbugs/safari/1462_reduced.html
+END
+hr_caret.html
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_dev/browserbugs/safari/hr_caret.html
+END
+nbsp_removeformat.html
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_dev/browserbugs/safari/nbsp_removeformat.html
+END
+1462_2_reduced.html
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_dev/browserbugs/safari/1462_2_reduced.html
+END
+hr_undefined.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_dev/browserbugs/safari/hr_undefined.html
+END
+input_hidden.html
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_dev/browserbugs/safari/input_hidden.html
+END

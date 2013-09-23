@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/!svn/ver/7433/FCKeditor/branches/versions/2.6.x/_dev
+END
+lint_report.txt
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_dev/lint_report.txt
+END
+lint.sh
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/5129/FCKeditor/branches/versions/2.6.x/_dev/lint.sh
+END
+domain_fix_template.js
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/!svn/ver/5129/FCKeditor/branches/versions/2.6.x/_dev/domain_fix_template.js
+END
+fckreleaser.xml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/5129/FCKeditor/branches/versions/2.6.x/_dev/fckreleaser.xml
+END
+_getopt.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_dev/_getopt.php
+END
+css_compression.txt
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/5129/FCKeditor/branches/versions/2.6.x/_dev/css_compression.txt
+END
+update_lang.bat
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/5129/FCKeditor/branches/versions/2.6.x/_dev/update_lang.bat
+END
+lint.mac.conf
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/!svn/ver/4268/FCKeditor/branches/versions/2.6.x/_dev/lint.mac.conf
+END
+lint.conf
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/4268/FCKeditor/branches/versions/2.6.x/_dev/lint.conf
+END
+fixlineends.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/5129/FCKeditor/branches/versions/2.6.x/_dev/fixlineends.php
+END
+php_bom_finder.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/5129/FCKeditor/branches/versions/2.6.x/_dev/php_bom_finder.php
+END
+build_release.bat
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/!svn/ver/7433/FCKeditor/branches/versions/2.6.x/_dev/build_release.bat
+END
+lint_report.bat
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/5129/FCKeditor/branches/versions/2.6.x/_dev/lint_report.bat
+END
+lint.bat
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/5129/FCKeditor/branches/versions/2.6.x/_dev/lint.bat
+END
+PEAR.php
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_dev/PEAR.php
+END
+fixlineends.bat
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/5129/FCKeditor/branches/versions/2.6.x/_dev/fixlineends.bat
+END
+svn_update.bat
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/!svn/ver/5129/FCKeditor/branches/versions/2.6.x/_dev/svn_update.bat
+END
+lint_report.command
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/!svn/ver/5129/FCKeditor/branches/versions/2.6.x/_dev/lint_report.command
+END

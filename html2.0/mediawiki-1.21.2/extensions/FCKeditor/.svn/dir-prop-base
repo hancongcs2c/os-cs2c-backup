@@ -1,0 +1,6 @@
+K 13
+svn:externals
+V 68
+http://svn.ckeditor.com/FCKeditor/branches/versions/2.6.x fckeditor
+
+END

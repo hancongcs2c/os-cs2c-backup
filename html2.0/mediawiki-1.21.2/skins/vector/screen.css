@@ -1,0 +1,1045 @@
+/*
+ * Any rules which should not be flipped automatically in right-to-left situations should be
+ * prepended with @noflip in a comment block. Images that should be embedded as base64 data-URLs
+ * should be prepended with @embed in a comment block.
+ *
+ * This style-sheet employs a few CSS trick to accomplish compatibility with a wide range of web
+ * browsers. The most common trick is to use some styles in IE6 only. This is accomplished by using
+ * a rule that makes things work in IE6, and then following it with a rule that begins with
+ * "html > body" or use a child selector ">", which is ignored by IE6 because it does not support
+ * the child selector. You can spot this by looking for the "OVERRIDDEN BY COMPLIANT BROWSERS" and
+ * "IGNORED BY IE6" comments.
+ */
+
+/* Framework */
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> Discuz! Board  - Powered by Discuz!</title>
+<meta name="keywords" content="" />
+<meta name="description" content=" Discuz! Board  - Discuz! Board" />
+<meta name="generator" content="Discuz! 7.2" />
+<meta name="author" content="cong.han@cs2c.com.cn" />
+<meta name="copyright" content="2001-2009 Comsenz Inc." />
+<meta name="MSSmartTagsPreventParsing" content="True" />
+<meta http-equiv="MSThemeCompatible" content="Yes" />
+<meta http-equiv="x-ua-compatible" content="ie=7" />
+<link rel="archives" title="Discuz! Board" href="/forum/upload/archiver/" />
+<link rel="alternate" type="application/rss+xml" title="Discuz! Board" href="/forum/upload/rss.php?auth=0" />
+<link rel="stylesheet" type="text/css" href="forumdata/cache/style_4_common.css?g1J" /><link rel="stylesheet" type="text/css" href="forumdata/cache/scriptstyle_4_index.css?g1J" />
+<script type="text/javascript">var STYLEID = '4', IMGDIR = 'images/default', VERHASH = 'g1J', charset = 'utf-8', discuz_uid = 0, cookiedomain = '', cookiepath = '/', attackevasive = '0', disallowfloat = 'newthread|reply', creditnotice = '1|Karma|,2|Money|', gid = parseInt('0'), fid = parseInt('0'), tid = parseInt('0')</script>
+<script src="forumdata/cache/common.js?g1J" type="text/javascript"></script>
+</head>
+<style type="text/css">
+
+*{
+text-shadow: 1px 0 1px #ddd;
+font-family: Verdana, Geneva, sans-serif;
+font-size:14px;
+}
+html{background: #fefefe url(/osc/img/roundbg.png) repeat-y;}
+body{width:1024px;margin:0 auto;}
+#onlinelist dt, #onlinelist dd  ,.forumlinks, .forumimglink, .forumtxtlink, .list td, .list th{border-top:1px dotted #ddd;}
+.postbtn, .replybtn{background:none;background-color:#cc0000;}
+.postbtn a, .replybtn a{letter-spacing:1px;padding-left:0;}
+#nav{background:none;text-indent:0;}
+#umenu{margin-top:3.65em;}
+#umenu a{color:#999;margin:0;}
+.navul a:hover,#footlink a:hover,h2 a:hover{text-decoration:none;}
+#header .wrap{padding:15px 0 20px;}
+#header .wrap.s_clear{width:100%;}
+.wrap.s_clear h2 a img{width:92px;height:92px;}
+.wrap.s_clear h2 a span,.wrap.s_clear h2 a small{
+position:relative;
+top:-54px;
+left:-4px;
+}
+.wrap.s_clear h2 a span{font-size:2em;color: #ddd;
+text-shadow: 1px 0 1px #ddd;
+-webkit-text-shadow: 1px 0 1px #ddd;
+-moz-text-shadow: 1px 0 1px #ddd;
+font-weight: bold;
+}
+.wrap.s_clear h2 a small{
+display:inline-block;
+font-size: .8em;
+color: #666;
+font-weight: normal;
+margin-top: 5px;
+margin-left:96px;
+}
+.addul{display:inline-block;margin:0 0 2em;float:right;font-weight:lighter;}
+.addul li{float:left;list-style:none;}
+.addul li a{font-size: 16px;
+padding: 0 2px;margin:0 20px;color:#333;font-weight:lighter;}
+.addul li a:hover, .addul li a.current {
+text-decoration:none;
+color: #c00;
+border-bottom: 1px dotted #c00;
+transition: all .3s;
+-webkit-transition: all .3s;
+-moz-transition: all .3s;
+}
+.addul li .last {margin-right:0;}
+
+#p-logo  span, #p-logo  small {
+position: relative;
+top: -94px;
+left: 92px;
+}
+#p-logo  span{
+font-size: 1.8em;
+color: #ddd;
+text-shadow: 1px 0 1px #ddd;
+-webkit-text-shadow: 1px 0 1px #ddd;
+-moz-text-shadow: 1px 0 1px #ddd;
+font-weight: bold;
+}
+#p-logo  small{
+display: inline-block;
+font-size: .7em;
+color: #666;
+font-weight: normal;
+margin-top: 5px;
+}
+table{border-collapse:collapse;}
+table tr:first-child{background-color:#eee;font-weight:bold;}
+input{padding:3px 8px;border:1px solid #ccc;}
+textarea{border:1px solid #ccc;}
+fieldset{border:1px solid #aaa;border-radius:3px}
+div.vectorTabs ul,#p-namespaces ul,#p-views ul{background-image:none;}
+.vectorTabs li a,.vectorTabs li span{display:inline-block;width:100%;}
+.vectorTabs li a{text-decoration:none;}
+.vectorTabs li.selected{background-image:none;background-color:#fefefe;
+}
+div.vectorTabs li{background-image:none;background-color:#f5f5f5;}
+div.vectorTabs span{}
+#content h1,#content h2,#content  h3,#content  h4,#content  h5,#content  h6{
+border-bottom:0;
+line-height:1.5em;
+border-left:.2em solid #ffB8B8;
+padding:0 .2em 0 .2em;
+}
+#content h1{border-left-color:#ff6666;}
+#content .toc h2{border:0}
+h1#firstHeading{
+	background: url(/osc/img/dotted-bg.png) repeat;
+	color:#c00;
+	border:0;
+	font-size:1.17em;
+	border-bottom:1px solid #c00;
+	padding-left:8px;
+}
+.mw-content-ltr{
+	padding-left:8px;
+}
+#footer a{
+	color:#222;
+}
+#footer a:visited{
+	color:#222;
+}
+#mw-panel.collapsible-nav  #p-tb{
+	background:none;
+	border-top:1px solid #ddd;
+}
+#mw-panel.collapsible-nav #p-tb h3 a, #mw-panel.collapsible-nav .portal.collapsed h5 a{
+	color:#222;
+}
+#mw-panel.collapsible-nav .portal.expanded{
+	margin:0;
+}
+#mw-panel.collapsible-nav .portal.first.persistent{
+	margin-left:2px;
+	border-top:1px solid #ddd;
+	margin-top:1.5em;
+}
+#mw-panel.collapsible-nav .first.portal.persistent .body{
+	margin:0;
+}
+#p-personal a{
+	color:#aaa;
+}
+html,
+body {
+	height: 100%;
+	padding: 0;
+	font-family: Verdana, Geneva, sans-serif;
+	text-shadow:1px 0 1px #eee;
+	-webkit-text-shadow:1px 0 1px #eee;
+	-moz-text-shadow:1px 0 1px #eee;
+	font-size: 1em;
+}
+body {
+	width:1024px;
+	margin:0 auto;
+	background-color: #fefefe;
+}
+
+div#mw-panel,div#content{float:left;}
+div#mv-panel{
+	width:10em;
+}
+/* Content */
+div#content {
+	width:52.9em;
+	margin-left:0;
+	padding: 0 1em;
+	/* Border on top, left, and bottom side */
+	border: 1px solid #fff;
+	border-right-width: 0;
+	/* Merge the border with tabs' one (in their background image) */
+	margin-top: -1px;
+	background-color: #fefefe;
+	color: black;
+	direction: ltr;
+	border-radius:3px;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+}
+/* Hide, but keep accessible for screen-readers */
+#mw-navigation h2 {
+	position: absolute;
+	top: -9999px;
+}
+/* Head */
+#mw-page-base {
+	height: 5em;
+	background-color: white;
+	/* @embed */
+	/*background-image: url(images/page-fade.png);
+	background-position: bottom left;
+	background-repeat: repeat-x;*/
+}
+#mw-head-base {
+	margin-top: -5em;
+	margin-left: 10em;
+	height: 0;
+}
+div#mw-head {
+	display:inline-block;
+	float:right;
+}
+div#mw-head h3,
+div#mw-head h5 {
+	margin: 0;
+	padding: 0;
+}
+/* Hide empty portlets */
+div.emptyPortlet {
+		display: none;
+}
+/* Personal */
+#p-personal {
+	/* Display on top of page tabs - bug 37158 */
+	z-index: 1;
+}
+#p-personal h3,
+#p-personal h5 {
+	display: none;
+}
+#p-personal ul {
+	list-style-type: none;
+	list-style-image: none;
+	margin: 0;
+	padding-left: 10em; /* Keep from overlapping logo */
+}
+/* @noflip */
+#p-personal li {
+	line-height: 1.5em;
+	float: left;
+}
+/* This one flips! */
+#p-personal li {
+	margin:1.5em 0 1.5em 0.75em;
+	font-size: 0.75em;
+	white-space: nowrap;
+}
+/* Navigation Containers */
+#left-navigation {
+}
+#right-navigation {
+}
+/* Navigation Labels */
+div.vectorTabs h3,
+div.vectorTabs h5,
+div.vectorMenu h3 span,
+div.vectorMenu h5 span {
+	display: none;
+}
+div#p-cactions{
+	background-image:none;
+	margin: .4em .5em;
+font-size: .8em;
+}
+/* Namespaces and Views */
+/* @noflip */
+div.vectorTabs {
+}
+div.vectorTabs {
+	/* @embed */
+	padding-left: 0;
+}
+/* @noflip */
+div.vectorTabs ul {
+}
+div.vectorTabs ul {
+	height: 100%;
+	list-style-type: none;
+	list-style-image: none;
+	margin: 0;
+	padding: 0;
+}
+/* @noflip */
+div.vectorTabs ul li {
+}
+/* OVERRIDDEN BY COMPLIANT BROWSERS */
+div.vectorTabs ul li {
+	display: inline-block;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	/* @embed */
+/*	background-image: url(images/tab-normal-fade.png);
+	background-position: bottom left;
+	background-repeat: repeat-x;*/
+	white-space: nowrap;
+}
+/* IGNORED BY IE6 */
+div.vectorTabs ul > li {
+	display: block;
+}
+div.vectorTabs li.selected {
+	/* @embed */
+	/*background-image: url(images/tab-current-fade.png);*/
+}
+/* OVERRIDDEN BY COMPLIANT BROWSERS */
+div.vectorTabs li a {
+	display: inline-block;
+	height: 1.9em;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	color: #333;
+	cursor: pointer;
+	font-size: .8em;
+}
+/* IGNORED BY IE6 */
+div.vectorTabs li > a {
+	display: block;
+}
+div.vectorTabs li.icon a {
+	background-position: bottom right;
+	background-repeat: no-repeat;
+}
+/* OVERRIDDEN BY COMPLIANT BROWSERS */
+div.vectorTabs span a  {
+	display: inline-block;
+	padding: .4em .5em .4em;
+}
+/* IGNORED BY IE6 */
+/* @noflip */
+div.vectorTabs span > a {
+	float: left;
+	display: block;
+}
+div.vectorTabs span {
+	display: inline-block;
+	/* @embed */
+	/*background-image: url(images/tab-break.png);
+	background-position: bottom right;
+	background-repeat: no-repeat;*/
+}
+div.vectorTabs li.selected a,
+div.vectorTabs li.selected a:visited{
+	color: #c00;
+	text-decoration: none;
+}
+div.vectorTabs li.new a,div.vectorTabs li a,
+div.vectorTabs li.new a:visited{
+	color: #c00;
+}
+/* Variants and Actions */
+/* @noflip */
+div.vectorMenu {
+	direction: ltr;
+	/* @embed */
+	background-image: url(images/arrow-down-icon.png);
+	background-position: 100% 60%;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+div.vectorMenuFocus {
+	/* @embed */
+	background-image: url(images/arrow-down-focus-icon.png);
+	background-position: 100% 60%;
+}
+/* @noflip */
+body.rtl div.vectorMenu {
+	direction: rtl;
+}
+/* OVERRIDDEN BY COMPLIANT BROWSERS */
+/* @noflip */
+div#mw-head div.vectorMenu h3,
+div#mw-head div.vectorMenu h5 {
+	float: left;
+	/* @embed */
+	/*background-image: url(images/tab-break.png);
+	background-repeat: no-repeat;*/
+}
+/* This will be flipped - unlike the one above it */
+div#mw-head div.vectorMenu h3,
+div#mw-head div.vectorMenu h5 {
+	background-position: bottom left;
+	margin-left: -1px;
+}
+/* IGNORED BY IE6 */
+div#mw-head div.vectorMenu > h3,
+div#mw-head div.vectorMenu > h5 {
+	background-image: none;
+}
+div#mw-head div.vectorMenu h4,
+div.vectorMenu#p-variants #mw-vector-current-variant {
+	display: inline-block;
+	float: left;
+	font-size: 0.8em;
+	padding-left: 0.5em;
+	padding-top: 1.375em;
+	font-weight: normal;
+	border: none;
+}
+/* OVERRIDDEN BY COMPLIANT BROWSERS */
+/* @noflip */
+div.vectorMenu h3 a,
+div.vectorMenu h5 a {
+	display: inline-block;
+	width: 24px;
+	height: 1.9em;
+	text-decoration: none;
+	/* @embed */
+	/*background-image: url(images/tab-break.png);
+	background-repeat: no-repeat;*/
+}
+/* This will be flipped - unlike the one above it */
+div.vectorMenu h3 a,
+div.vectorMenu h5 a {
+	background-position: bottom right;
+}
+/* IGNORED BY IE6 */
+div.vectorMenu h3 > a,
+div.vectorMenu h5 > a {
+	display: block;
+}
+div.vectorMenu div.menu {
+	position: relative;
+	display: none;
+	clear: both;
+	text-align: left;
+}
+/* OVERRIDDEN BY COMPLIANT BROWSERS */
+/* @noflip */
+body.rtl div.vectorMenu div.menu {
+	margin-left: 24px;
+}
+/* IGNORED BY IE6 */
+/* @noflip */
+body.rtl div.vectorMenu > div.menu {
+	margin-left: auto;
+}
+/* IGNORED BY IE6 */
+/* Also fixes old versions of FireFox */
+/* @noflip */
+body.rtl div.vectorMenu > div.menu,
+x:-moz-any-link {
+	margin-left: 23px;
+}
+/* Enable forcing showing of the menu for accessibility */
+div.vectorMenu:hover div.menu,
+div.vectorMenu div.menuForceShow {
+	display: block;
+}
+div.vectorMenu ul {
+position: absolute;
+background-color: #fefefe;
+border: solid 1px #ddd;
+border-top-width: 0;
+border-radius: 3px;
+list-style-type: none;
+list-style-image: none;
+padding:.5em 0;
+margin: 0;
+text-align: left;
+width: 100%;
+}
+/* Fixes old versions of FireFox */
+div.vectorMenu ul,
+x:-moz-any-link {
+	min-width: 5em;
+}
+/* Returns things back to normal in modern versions of FireFox */
+div.vectorMenu ul,
+x:-moz-any-link,
+x:default {
+	min-width: 0;
+}
+div.vectorMenu li {
+	padding: 0;
+	margin: 0;
+	text-align: left;
+	line-height: 1em;
+}
+/* OVERRIDDEN BY COMPLIANT BROWSERS */
+div.vectorMenu li a {
+	display: inline-block;
+	padding: 0.5em;
+	white-space: nowrap;
+	color: #c00;
+	cursor: pointer;
+	font-size: 1em;
+}
+/* IGNORED BY IE6 */
+div.vectorMenu li > a {
+	display: block;
+}
+div.vectorMenu li.selected a,
+div.vectorMenu li.selected a:visited {
+	color: #333;
+	text-decoration: none;
+}
+/* Search */
+#p-search h3,
+#p-search h5 {
+	display: none;
+}
+/* @noflip */
+#p-search {
+}
+#p-search {
+	margin-right: 0;
+	margin-left: .4em;
+}
+#p-search form,
+#p-search input {
+	margin: 0;
+	margin-top: 0.4em;
+}
+div#simpleSearch {
+	display:inline-block;
+	float:right;
+	width:160px;
+	height: 20px;
+	min-height: 1px; /* Gotta trigger hasLayout for IE7 */
+	border: solid 1px #aaa;
+	color: black;
+	background-color: white;
+	/* @embed */
+}
+div#simpleSearch label {
+	/*
+	 * DON'T PANIC! Browsers that won't scale this properly are the same browsers that have JS issues that prevent
+	 * this from ever being shown anyways.
+	*/
+	font-size: 13px;
+	top: 0.25em;
+	direction: ltr;
+}
+div#simpleSearch input {
+	color: black;
+	direction: ltr;
+}
+div#simpleSearch input:focus {
+	outline: none;
+}
+div#simpleSearch input.placeholder {
+	color: #999;
+}
+div#simpleSearch input::-webkit-input-placeholder {
+	color: #999;
+}
+div#simpleSearch input:-moz-placeholder {
+	color: #999;
+}
+div#simpleSearch input:-ms-input-placeholder {
+	color: #999;
+}
+div#simpleSearch input#searchInput {
+	width: 140px;
+	height:1em;
+	padding-left:8px;
+	margin: 0;
+	outline: none;
+	border: none;
+	/*
+	 * DON'T PANIC! Browsers that won't scale this properly are the same browsers that have JS issues that prevent
+	 * this from ever being shown anyways.
+	*/
+	font-size: 13px;
+	background-color: transparent;
+	direction: ltr;
+}
+div#simpleSearch button#searchButton {
+	width: 20px;
+	padding: 0;
+	margin: 0;
+	border: none;
+	cursor: pointer;
+	background-color: transparent;
+	background-image: none;
+	position:relative;
+	top:-20px;
+	left:140px;
+	z-index:1000;
+}
+/* OVERRIDDEN BY COMPLIANT BROWSERS */
+div#simpleSearch button#searchButton img {
+	border: none;
+	margin: 0;
+	padding: 0;
+	z-index:1000
+}
+/* IGNORED BY IE6 */
+div#simpleSearch button#searchButton > img {
+	margin: 0;
+}
+/* Panel */
+div#mw-panel {
+	padding:0;
+	width: 10em;
+	float:left;
+	background: url(/osc/img/dotted-bg.png) repeat;
+}
+div#mw-panel div.portal {
+	padding-bottom: 1.5em;
+	direction: ltr;
+}
+div#mw-panel div.portal h3,
+div#mw-panel div.portal h5 {
+	font-weight: normal;
+	color: #444;
+	padding: 0.25em;
+	padding-top: 0;
+	padding-left: 1.75em;
+	cursor: default;
+	border: none;
+	font-size: 0.75em;
+}
+div#mw-panel div.portal div.body {
+	clear:both;
+	margin:0 1em;
+	padding-top: 0.5em;
+	/* @embed */
+	background-image: url(images/portal-break.png);
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+div#mw-panel div.portal div.body ul {
+	list-style-type: none;
+	list-style-image: none;
+	padding: 0;
+	margin:.5em .2em 0;
+}
+div#mw-panel div.portal.expanded div.body ul{margin:.2em;}
+div#mw-panel div.portal.expanded div.body ul li{padding:0;}
+div#mw-panel div.portal.collapsed{margin:0 .2em;}
+div#mw-panel div.portal div.body ul li {
+line-height:1.7em;	
+padding: 0;
+	font-size: 14px;
+	word-wrap: break-word;
+}
+div#mw-panel div.portal div.body ul li a {
+	color: #666;
+}
+div#mw-panel div.portal div.body ul li a:visited {
+	color: #666;
+}
+/* Footer */
+div#footer {
+	background-color:#fefefe;
+	padding: 0.75em;
+	direction: ltr;
+}
+div#footer ul {
+	list-style-type: none;
+	list-style-image: none;
+	margin: 0;
+	padding: 0;
+}
+div#footer ul li {
+	margin: 0;
+	padding: 0;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	color: #333;
+	font-size: 0.7em;
+}
+div#footer #footer-icons {
+	clear:both;
+}
+/* @noflip */
+body.ltr div#footer #footer-places {
+	float: left;
+}
+div#footer #footer-info li {
+	line-height: 1.4em;
+}
+div#footer #footer-icons li {
+	float: left;
+	margin-left: 0m;
+	line-height: 2em;
+	text-align: right;
+}
+div#footer #footer-places li {
+	float: left;
+	margin-right: 1em;
+	line-height: 2em;
+}
+/* Logo */
+#p-logo {
+	float:left;
+}
+#p-logo a {
+	display: block;
+	background-repeat: no-repeat;
+	background-position: center center;
+	text-decoration: none;
+}
+
+/*
+ *
+ * The following code is highly modified from monobook. It would be nice if the
+ * preftoc id was more human readable like preferences-toc for instance,
+ * howerver this would require backporting the other skins.
+ */
+
+/* Preferences */
+#preftoc {
+	/* Tabs */
+	width: 100%;
+	float: left;
+	clear: both;
+	margin: 0 !important;
+	padding: 0 !important;
+	/* @embed */
+	background-image: url(images/preferences-break.png);
+	background-position: bottom left;
+	background-repeat: no-repeat;
+}
+	#preftoc li {
+		/* Tab */
+		float: left;
+		margin: 0;
+		padding: 0;
+		padding-right: 1px;
+		height: 2.25em;
+		white-space: nowrap;
+		list-style-type: none;
+		list-style-image: none;
+		/* @embed */
+		background-image: url(images/preferences-break.png);
+		background-position: bottom right;
+		background-repeat: no-repeat;
+	}
+	/* Sadly, IE6 won't understand this */
+	#preftoc li:first-child {
+		margin-left: 1px;
+	}
+	#preftoc a,
+	#preftoc a:active {
+		display: inline-block;
+		position: relative;
+		color: #222;
+		padding: 0.5em;
+		text-decoration: none;
+		background-image: none;
+		font-size: 0.9em;
+	}
+	#preftoc a:hover,
+	#preftoc a:focus {
+		text-decoration: underline;
+	}
+	#preftoc li.selected a {
+		/* @embed */
+		background-image: url(images/preferences-fade.png);
+		background-position: bottom;
+		background-repeat: repeat-x;
+		color: #333;
+		text-decoration: none;
+	}
+#preferences {
+	float: left;
+	width: 100%;
+	margin: 0;
+	margin-top: -2px;
+	clear: both;
+	border: solid 1px #ccc;
+	background-color: #fafafa;
+}
+#preferences fieldset {
+	border: none;
+	border-top: solid 1px #ccc;
+}
+#preferences fieldset.prefsection {
+	border: none;
+	padding: 0;
+	margin: 1em;
+}
+#preferences legend {
+	color: #666;
+}
+#preferences fieldset.prefsection legend.mainLegend {
+	display: none;
+}
+#preferences td {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+.htmlform-tip {
+	font-size: x-small;
+	padding: .2em 2em;
+	color: #666;
+}
+#preferences div.mw-prefs-buttons {
+	padding: 1em;
+}
+#preferences div.mw-prefs-buttons input {
+	margin-right: 0.25em;
+}
+
+/**
+ * The following code is slightly modified from monobook
+ */
+div#content {
+	line-height: 1.7em;
+}
+#bodyContent {
+	font-size: 14px;
+	min-height:400px;
+}
+
+.editsection {
+	float: right;
+}
+
+ul {
+	list-style-type: disc;
+	/* @embed */
+	list-style-image: url(images/bullet-icon.png);
+}
+
+pre, .mw-code {
+	line-height: 1.3em;
+}
+
+/* Site Notice (includes notices from CentralNotice extension) */
+#siteNotice {
+	font-size: 0.8em;
+}
+#firstHeading {
+	padding-top: 0;
+	margin-top: 0;
+	padding-top: 0;
+	font-size: 1.6em;
+}
+div#content a.external,
+div#content a.external[href ^="gopher://"] {
+	/* @embed */
+	background: url(images/external-link-ltr-icon.png) center right no-repeat;
+	padding-right: 13px;
+}
+div#content a.external[href ^="https://"],
+.link-https {
+	/* @embed */
+	background: url(images/lock-icon.png) center right no-repeat;
+	padding-right: 13px;
+}
+div#content a.external[href ^="mailto:"],
+.link-mailto {
+	/* @embed */
+	background: url(images/mail-icon.png) center right no-repeat;
+	padding-right: 13px;
+}
+div#content a.external[href ^="news:"] {
+	/* @embed */
+	background: url(images/news-icon.png) center right no-repeat;
+	padding-right: 13px;
+}
+div#content a.external[href ^="ftp://"],
+.link-ftp {
+	/* @embed */
+	background: url(images/file-icon.png) center right no-repeat;
+	padding-right: 13px;
+}
+div#content a.external[href ^="irc://"],
+div#content a.external[href ^="ircs://"],
+.link-irc {
+	/* @embed */
+	background: url(images/talk-icon.png) center right no-repeat;
+	padding-right: 13px;
+}
+div#content a.external[href $=".ogg"], div#content a.external[href $=".OGG"],
+div#content a.external[href $=".mid"], div#content a.external[href $=".MID"],
+div#content a.external[href $=".midi"], div#content a.external[href $=".MIDI"],
+div#content a.external[href $=".mp3"], div#content a.external[href $=".MP3"],
+div#content a.external[href $=".wav"], div#content a.external[href $=".WAV"],
+div#content a.external[href $=".wma"], div#content a.external[href $=".WMA"],
+.link-audio {
+	/* @embed */
+	background: url(images/audio-icon.png) center right no-repeat;
+	padding-right: 13px;
+}
+div#content a.external[href $=".ogm"], div#content a.external[href $=".OGM"],
+div#content a.external[href $=".avi"], div#content a.external[href $=".AVI"],
+div#content a.external[href $=".mpeg"], div#content a.external[href $=".MPEG"],
+div#content a.external[href $=".mpg"], div#content a.external[href $=".MPG"],
+.link-video {
+	/* @embed */
+	background: url(images/video-icon.png) center right no-repeat;
+	padding-right: 13px;
+}
+div#content a.external[href $=".pdf"], div#content a.external[href $=".PDF"],
+div#content a.external[href *=".pdf#"], div#content a.external[href *=".PDF#"],
+div#content a.external[href *=".pdf?"], div#content a.external[href *=".PDF?"],
+.link-document {
+	/* @embed */
+	background: url(images/document-icon.png) center right no-repeat;
+	padding-right: 13px;
+}
+
+/* Icon for Usernames */
+#pt-userpage,
+#pt-anonuserpage,
+#pt-login {
+	/* @embed */
+	background: url(images/user-icon.png) left top no-repeat;
+	padding-left: 15px !important;
+	text-transform: none;
+}
+
+.redirectText {
+	font-size: 140%;
+}
+
+.redirectMsg img {
+	vertical-align: text-bottom;
+}
+
+#bodyContent {
+	position: relative;
+	width: 100%;
+	margin-bottom:4em;
+}
+div#bodyContent {
+	line-height: 1.5em;
+}
+
+/* mediawiki.notification */
+.skin-vector #mw-notification-area {
+	top: 7em;
+	font-size: 0.8em;
+}
+.skin-vector .mw-notification {
+	background-color: #fff;
+	background-color: rgba(255, 255, 255, 0.93);
+	padding: 0.75em 1.5em;
+	border: solid 1px #a7d7f9;
+	border-radius: 0.75em;
+	-webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.125);
+	-moz-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.125);
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.125);
+}
+
+/* Watch/Unwatch Icon Styling */
+#ca-unwatch.icon a,
+#ca-watch.icon a {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	display: block;
+	width: 26px;
+	/* This hides the text but shows the background image */
+	padding-top: 3.1em;
+	margin-top: 0;
+	/* Only applied in IE6 */
+	margin-top: -0.8em !ie;
+	height: 0;
+	overflow: hidden;
+	/* @embed */
+	background-image: url(images/watch-icons.png);
+}
+#ca-unwatch.icon a {
+	background-position: -43px 60%;
+}
+#ca-watch.icon a {
+	background-position: 5px 60%;
+}
+#ca-unwatch.icon a:hover,
+#ca-unwatch.icon a:focus {
+	background-position: -67px 60%;
+}
+#ca-watch.icon a:hover,
+#ca-watch.icon a:focus {
+	background-position: -19px 60%;
+}
+#ca-unwatch.icon a.loading,
+#ca-watch.icon a.loading {
+	/* @embed */
+	background-image: url(images/watch-icon-loading.gif);
+	background-position: 5px 60%;
+}
+#ca-unwatch.icon a span,
+#ca-watch.icon a span {
+	display: none;
+}
+div.vectorTabs ul {
+	/* @embed */
+	background-image: url(images/tab-break.png);
+	background-position: right bottom;
+	background-repeat: no-repeat;
+}
+
+/* Tooltips are outside of the normal body code, so this helps make the size of the text sensible */
+.tipsy {
+	font-size: 0.8em;
+}
+
+/* Animate between standard and high definition layouts */
+
+body.vector-animateLayout div#content,
+body.vector-animateLayout div#footer {
+	-moz-transition: margin-left 250ms, padding 250ms;
+	-webkit-transition: margin-left 250ms, padding 250ms;
+	-o-transition: margin-left 250ms, padding 250ms;
+	transition: margin-left 250ms, padding 250ms;
+}
+body.vector-animateLayout #p-logo,
+body.vector-animateLayout #left-navigation {
+	-moz-transition: left 250ms;
+	-webkit-transition: left 250ms;
+	-o-transition: left 250ms;
+	transition: left 250ms;
+}
+body.vector-animateLayout #mw-panel {
+	-moz-transition: padding-left 250ms;
+	-webkit-transition: padding-left 250ms;
+	-o-transition: padding-left 250ms;
+	transition: padding-left 250ms;
+}
+body.vector-animateLayout #p-search {
+	-moz-transition: margin-right 250ms;
+	-webkit-transition: margin-right 250ms;
+	-o-transition: margin-right 250ms;
+	transition: margin-right 250ms;
+}
+body.vector-animateLayout #p-personal {
+	-moz-transition: right 250ms;
+	-webkit-transition: right 250ms;
+	-o-transition: right 250ms;
+	transition: right 250ms;
+}
+body.vector-animateLayout #mw-head-base {
+	-moz-transition: margin-left 250ms;
+	-webkit-transition: margin-left 250ms;
+	-o-transition: margin-left 250ms;
+	transition: margin-left 250ms;
+}

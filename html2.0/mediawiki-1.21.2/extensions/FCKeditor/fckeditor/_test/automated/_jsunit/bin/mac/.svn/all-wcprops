@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_test/automated/_jsunit/bin/mac
+END
+stop-safari.scpt
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_test/automated/_jsunit/bin/mac/stop-safari.scpt
+END
+stop-safari.sh
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_test/automated/_jsunit/bin/mac/stop-safari.sh
+END
+start-firefox.scpt
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_test/automated/_jsunit/bin/mac/start-firefox.scpt
+END
+start-firefox.sh
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_test/automated/_jsunit/bin/mac/start-firefox.sh
+END
+start-safari.scpt
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_test/automated/_jsunit/bin/mac/start-safari.scpt
+END
+start-safari.sh
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_test/automated/_jsunit/bin/mac/start-safari.sh
+END
+readme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_test/automated/_jsunit/bin/mac/readme.txt
+END
+stop-firefox.scpt
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_test/automated/_jsunit/bin/mac/stop-firefox.scpt
+END
+stop-firefox.sh
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/1630/FCKeditor/branches/versions/2.6.x/_test/automated/_jsunit/bin/mac/stop-firefox.sh
+END

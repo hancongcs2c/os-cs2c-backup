@@ -1,0 +1,29 @@
+/* Vector screen styles for high definition displays */
+
+div#content {
+	margin-left: 1em;
+	padding:0 0 1.5em 0;
+}
+
+div#content a{color:#3e77ab;}
+#p-logo {
+	left:.5em;
+	height:113px;
+}
+#p-logo a{width:92px;height:92px;background-size:contain;margin:1em 0;}
+div#footer {
+	padding: 1em 1.5em;
+	border-top:1px dotted #ddd;
+}
+#mw-panel {
+	padding-left: 0.5em;
+}
+#left-navigation {
+	left: 1em;
+}
+#p-personal {
+	right: 1em;
+}
+#mw-head-base {
+	margin-left: 11em;
+}
